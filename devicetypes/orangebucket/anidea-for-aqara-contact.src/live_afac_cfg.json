@@ -22,6 +22,7 @@
             {
                 "component": "main",
                 "capability": "sensor",
+                "version": 1,
                 "values": [],
                 "patch": [],
                 "visibleCondition": null
