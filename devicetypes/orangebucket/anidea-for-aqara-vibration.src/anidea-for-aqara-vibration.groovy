@@ -7,7 +7,7 @@
  *
  * Anidea for Aqara Vibration
  * ==========================
- * Version:	 20.10.15.00
+ * Version:	 20.12.04.00
  *
  * This device handler is a reworking of the 'Xiaomi Aqara Vibration Sensor' DTH by
  * 'bspranger' that adapts it for the 'new' environment. It has been stripped of the 'tiles', 
@@ -64,9 +64,9 @@ def installed()
     // of the 50-60 min battery reports arrives.
     sendEvent( name: 'checkInterval', value: 86400, displayed: false, data: [ protocol: 'zigbee', hubHardwareId: device.hub.hardwareID ] )
  
- 	// Use pushed_6x for vibration, and down_6x as a dummy value for initialisation purposes.
+ 	// Use down_6x as a dummy value for initialisation purposes.
     sendEvent( name: 'numberOfButtons',       value: 1,                                         displayed: false )
-    sendEvent( name: 'supportedButtonValues', value: [ 'pushed_6x', 'down_6x' ].encodeAsJSON(), displayed: false )
+    sendEvent( name: 'supportedButtonValues', value: [ 'pushed', 'down_6x' ].encodeAsJSON(), displayed: false )
 
 	// The SmartThings handlers seem keen on initialising the attributes and doing so seems to
     // prevent the 'new' app displaying 'Getting status' on tiles pending the attributes being set.
