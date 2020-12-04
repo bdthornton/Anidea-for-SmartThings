@@ -57,7 +57,7 @@ The `healthStatus` and `DeviceWatch-DeviceStatus` attributes both seem to allow 
 
 The `DeviceWatch-DeviceStatus` used to reflect the connectivity status (I don't know if that is also true of `healthStatus`) and so allowed legacy apps to subscribe to connectivity events. It has been observed that since October 5th this is no longer possible. Since the v32 firmware appeared on the hubs, the `healthStatus` and `DeviceWatch-DeviceStatus` attributes seem to be reported as null even when they have been assigned values.
 
-*12/20 Update: The `healthStatus` was rather dismissed as irrelevant but this information was presented in the contect of a thread involving Groovy Device Handlers.
+*12/20 Update: The `healthStatus` was rather dismissed as irrelevant but this information was presented in the contect of a thread involving Groovy Device Handlers.*
 
 The final attribute, `checkInterval`, is used extensively by device handlers. It sets a number of seconds of device inactivity, after which the `ping()` command
 method of the handler will be called to attempt to make the device respond. If that doesn’t help the device will be marked as offline. The interval is typically
