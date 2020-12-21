@@ -7,7 +7,7 @@
  *
  * Anidea for Aqara Vibration
  * ==========================
- * Version:	 20.10.15.00
+ * Version:	 20.12.04.01
  *
  * This device handler is a reworking of the 'Xiaomi Aqara Vibration Sensor' DTH by
  * 'bspranger' that adapts it for the 'new' environment. It has been stripped of the 'tiles', 
@@ -17,7 +17,7 @@
 metadata
 {
 	definition ( name: 'Anidea for Aqara Vibration', namespace: 'orangebucket', author: 'Graham Johnson',
-    			 ocfDeviceType: 'x.com.st.d.sensor.multifunction', mnmn: 'SmartThingsCommunity', vid: '03bc815f-5fe5-3435-a7d5-3c8ae04247eb' )
+    			 ocfDeviceType: 'x.com.st.d.sensor.multifunction', mnmn: 'SmartThingsCommunity', vid: 'cd875136-2467-3502-9666-45238f35d179' )
 	{
 		// Vibration is reported as acceleration (for consistency with the 'new' app).
 		capability "Acceleration Sensor"   	
@@ -39,10 +39,14 @@ metadata
         // positions, replacing custom commands.
         capability 'circlemusic21301.setClosed'
         capability 'circlemusic21301.setOpen'
+        
+        // The bspranger handler had "attribute 'activitylevel', 'string'" but set it
+        // as an integer. It has been converted to a custom capability using an integer.
+        capability 'circlemusic21301.activityLevel'
 
 		attribute 'accelsensitivity', 'string'
 		attribute 'tiltangle', 'string'
-		attribute 'activitylevel', 'string'
+
          
 		command 'changesensitivity'
 
@@ -64,17 +68,21 @@ def installed()
     // of the 50-60 min battery reports arrives.
     sendEvent( name: 'checkInterval', value: 86400, displayed: false, data: [ protocol: 'zigbee', hubHardwareId: device.hub.hardwareID ] )
  
- 	// Use pushed_6x for vibration, and down_6x as a dummy value for initialisation purposes.
+ 	// Use down_6x as a dummy value for initialisation purposes.
     sendEvent( name: 'numberOfButtons',       value: 1,                                         displayed: false )
-    sendEvent( name: 'supportedButtonValues', value: [ 'pushed_6x', 'down_6x' ].encodeAsJSON(), displayed: false )
+    sendEvent( name: 'supportedButtonValues', value: [ 'pushed', 'down_6x' ].encodeAsJSON(), displayed: false )
 
 	// The SmartThings handlers seem keen on initialising the attributes and doing so seems to
-    // prevent the 'new' app displaying 'Getting status' on tiles pending the attributes being set.
-    sendEvent( name: 'acceleration', value: 'inactive',  displayed: false )
-    sendEvent( name: 'motion',       value: 'inactive',  displayed: false )
-    sendEvent( name: 'button',       value: 'down_6x',   displayed: false ) 
-    sendEvent( name: 'contact',      value: 'closed',    displayed: false )
-    sendEvent( name: 'threeAxis',    value: [ 0, 0, 0 ], displayed: false )
+    // prevent the 'new' app displaying 'Checking status' on tiles pending the attributes being set.
+    // There is an argument for using existing values for attributes but it just seems better to 
+    // create recognisably artificial ones to highlight the device has been reinstalled.
+    sendEvent( name: 'acceleration',  value: 'inactive',  			 displayed: false )
+    sendEvent( name: 'motion',        value: 'inactive',  			 displayed: false )
+    sendEvent( name: 'button',        value: 'down_6x',   			 displayed: false ) 
+    sendEvent( name: 'contact',       value: 'closed',    			 displayed: false )
+    sendEvent( name: 'threeAxis',     value: [ 0, 0, 0 ], 			 displayed: false )
+    sendEvent( name: 'battery',		  value: 50,		  unit: '%', displayed: false )
+    sendEvent( name: 'activitylevel', value: 0,					     displayed: false )
 }
 
 // updated() seems to be called after installed() when the device is first installed, but not when
@@ -183,7 +191,7 @@ Map catchall( String description )
                 { 
                 	// check the data ID and data type
 					// next two bytes are the battery voltage
-					resultmap = battery( ( catchall.data.get( i + 2 )<<8) + catchall.data.get( i+1 ) )
+					resultmap = battery( ( catchall.data.get( i + 2 ) << 8 ) + catchall.data.get( i + 1 ) )
 					break
 				}
 			}
@@ -282,7 +290,7 @@ Map readattr( String description )
 		// Handles Recent Activity level value messages
 		else if ( attrid == '0505' )
         {
-			def level = Integer.parseInt( value[0..3], 16 )
+			def level = Integer.parseInt( value[ 0 .. 3 ], 16 )
  
 			resultmap = [ name: 'activitylevel', value: level ]
 		}
@@ -324,7 +332,7 @@ Map battery( raw )
 
 	// Battery events are sent with the 'isStateChange: true' flag to make sure there are regular
     // propagated events available for Health Check to monitor (if that is what it needs).
-	return [ name: 'battery', value: percent, isStateChange: true ]
+	return [ name: 'battery', value: percent, unit: '%', isStateChange: true ]
 }
 
 def clearvibration()

@@ -7,7 +7,7 @@
  *
  * Anidea for Aqara Temperature
  * ============================
- * Version:	 20.11.10.00
+ * Version:	 20.12.21.00
  *
  * This device handler is a reworking of the 'Xiaomi Aqara Temperature Humidity Sensor' DTH by
  * 'bspranger' that adapts it for the 'new' environment. It has been stripped of the 'tiles', 
@@ -274,5 +274,5 @@ Map battery( raw )
         logger( 'battery', 'debug', 'checkInterval 7800 seconds' )
 	}
  
-	return [ name: 'battery', value: percent, isStateChange: true ]
+	return [ name: 'battery', value: percent, unit: '%', isStateChange: true ]
 }

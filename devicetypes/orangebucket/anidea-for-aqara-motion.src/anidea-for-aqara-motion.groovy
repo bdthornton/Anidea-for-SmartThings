@@ -7,7 +7,7 @@
  *
  * Anidea for Aqara Motion
  * =======================
- * Version:	 20.08.27.00
+ * Version:	 20.12.21.00
  *
  * This device handler is a reworking of the 'Xiaomi Aqara Motion' DTH by 'bspranger' that
  * adapts it for the 'new' environment. It has been stripped of the 'tiles', custom attributes,
@@ -64,8 +64,9 @@ def installed()
     sendEvent( name: 'checkInterval', value: 86400, displayed: false, data: [ protocol: 'zigbee', hubHardwareId: device.hub.hardwareID ] )
  
     // The SmartThings handlers seem keen on initialising the attributes, so ...
-    sendEvent( name: 'motion', value: 'inactive', displayed: false )
-    sendEvent( name: 'illuminance', value: 0, displayed: false )   
+    sendEvent( name: 'motion',      value: 'inactive',            displayed: false )
+    sendEvent( name: 'illuminance', value: 0,                     displayed: false )   
+    sendEvent( name: 'battery',     value: 50,         unit: '%', displayed: false )
 }
 
 // updated() seems to be called after installed() when the device is first installed, but not when
@@ -211,7 +212,7 @@ Map battery( raw )
         logger( 'battery', 'debug', 'checkInterval 7800 seconds' )
 	}
  
-	return [ name: 'battery', value: percent, isStateChange: true ]
+	return [ name: 'battery', value: percent, unit: '%', isStateChange: true ]
 }
 
 // Manually set the motion attribute to active.  Don't call a reset timer.
