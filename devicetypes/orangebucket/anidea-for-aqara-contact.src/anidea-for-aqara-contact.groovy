@@ -7,7 +7,7 @@
  *
  * Anidea for Aqara Contact
  * ========================
- * Version:	 20.10.17.01
+ * Version:	 20.12.21.00
  *
  * This device handler is a reworking of the 'Xiaomi Aqara Door/Window Sensor' and 'Xiaomi Door/Window
  * Sensor' devices handlers by 'bspranger' that combines and adapt them for the 'new' environment. It has
@@ -149,7 +149,8 @@ Map battery( raw )
  
 	// Battery events are sent with the 'isStateChange: true' flag to make sure there are regular
     // propagated events available for Health Check to monitor (if that is what it needs).
-	return [ name: 'battery', value: percent, isStateChange: true ]
+    // The unit has been added to see if that is why the battery doesn't appear in the event log any more.
+	return [ name: 'battery', value: percent, unit: '%', isStateChange: true ]
 }
 
 // Check catchall for battery voltage data to pass to getBatteryResult for conversion to percentage report
