@@ -7,7 +7,7 @@
  *
  * Anidea for Virtual Humidity
  * ===========================
- * Version:	 20.10.21.01
+ * Version:	 20.12.23.00
  *
  * This handler implements a virtual Relative Humidity sensor, similar in structure
  * to Anidea for Virtual Temperature.
@@ -56,7 +56,14 @@ def updated()
 
 def logger( method, level = 'debug', message = '' )
 {
-	log."${level}" "$device.displayName [$device.name] [${method}] ${message}"
+	// Using log."${level}" for dynamic method invocation is now deprecated.
+    switch( level )
+	{
+		case 'info':	log.info  "$device.displayName [$device.name] [${method}] ${message}"
+        				break
+        default:	    log.debug "$device.displayName [$device.name] [${method}] ${message}"
+        				break
+	}
 }
 
 def setLevel( value, rate = null )

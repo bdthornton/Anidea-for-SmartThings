@@ -7,7 +7,7 @@
  *
  * Anidea for Aqara Contact
  * ========================
- * Version:	 20.12.21.00
+ * Version:	 20.12.23.00
  *
  * This device handler is a reworking of the 'Xiaomi Aqara Door/Window Sensor' and 'Xiaomi Door/Window
  * Sensor' devices handlers by 'bspranger' that combines and adapt them for the 'new' environment. It has
@@ -81,7 +81,14 @@ def updated()
 
 def logger( method, level = 'debug', message = '' )
 {
-	log."${level}" "$device.displayName [$device.name] [${method}] ${message}"
+	// Using log."${level}" for dynamic method invocation is now deprecated.
+    switch( level )
+	{
+		case 'info':	log.info  "$device.displayName [$device.name] [${method}] ${message}"
+        				break
+        default:	    log.debug "$device.displayName [$device.name] [${method}] ${message}"
+        				break
+	}
 }
 
 def ping()

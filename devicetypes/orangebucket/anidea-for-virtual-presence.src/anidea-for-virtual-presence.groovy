@@ -7,7 +7,7 @@
  *
  * Anidea for Virtual Presence
  * ===========================
- * Version:	 20.06.22.00
+ * Version:	 20.12.23.00
  *
  * A virtual presence and occupancy sensor that handles the two capabilities separately. 
  * Custom commands use standard names where available.
@@ -54,9 +54,15 @@ def updated()
 
 def logger( method, level = 'debug', message = '' )
 {
-	log."${level}" "$device.displayName [$device.name] [${method}] ${message}"
+	// Using log."${level}" for dynamic method invocation is now deprecated.
+    switch( level )
+	{
+		case 'info':	log.info  "$device.displayName [$device.name] [${method}] ${message}"
+        				break
+        default:	    log.debug "$device.displayName [$device.name] [${method}] ${message}"
+        				break
+	}
 }
-
 // This should be redundant.
 def parse( description )
 {
