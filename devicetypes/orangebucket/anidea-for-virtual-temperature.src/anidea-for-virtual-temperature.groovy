@@ -7,7 +7,7 @@
  *
  * Anidea for Virtual Temperature
  * ==============================
- * Version:	 20.05.29.01
+ * Version:	 20.12.23.00
  *
  * This handler basically implements the same functionality as the Simulated Temperature
  * Sensor but works with the new app.
@@ -66,7 +66,14 @@ def updated()
 
 def logger( method, level = 'debug', message = '' )
 {
-	log."${level}" "$device.displayName [$device.name] [${method}] ${message}"
+	// Using log."${level}" for dynamic method invocation is now deprecated.
+    switch( level )
+	{
+		case 'info':	log.info  "$device.displayName [$device.name] [${method}] ${message}"
+        				break
+        default:	    log.debug "$device.displayName [$device.name] [${method}] ${message}"
+        				break
+	}
 }
 
 def setLevel( value, rate = null )

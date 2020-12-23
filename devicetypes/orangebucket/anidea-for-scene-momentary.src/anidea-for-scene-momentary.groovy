@@ -6,7 +6,7 @@
  * --------------------------------------------------------------------------------- *
  * Anidea for Scene Momentary
  * ==========================
- * Version:	 20.06.05.01
+ * Version:	 20.12.23.00
  *
  * This device handler implements a Momentary button that activates a scene via the
  * API, saving the need to assemble HTTPS POST requests in third party apps.
@@ -54,7 +54,14 @@ def updated()
 
 def logger( method, level = 'debug', message = '' )
 {
-	log."${level}" "$device.displayName [$device.name] [${method}] ${message}"
+	// Using log."${level}" for dynamic method invocation is now deprecated.
+    switch( level )
+	{
+		case 'info':	log.info  "$device.displayName [$device.name] [${method}] ${message}"
+        				break
+        default:	    log.debug "$device.displayName [$device.name] [${method}] ${message}"
+        				break
+	}
 }
 
 // push() is the command for the Momentary capability. Make it press the button once.
