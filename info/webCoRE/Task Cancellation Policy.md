@@ -68,7 +68,7 @@ end if
 
 If the `Door Sensor contact` changes to closed during the wait, the light will not turn off.
 
-I had always assumed this would be the case but tested it and convinced myself that actually the light stayed on. I can only think I was being lazy and looking for wake ups rather than actual activity. I assume when scheduled tasks are cancelled on the first 'if', those in the second 'if' are also picked up.
+_I had always assumed this would be the case but tested it and convinced myself that actually the light stayed on. I can only think I was being lazy and looking for wake ups rather than actual activity. I assume when scheduled tasks are cancelled on the first 'if', those in the second 'if' are also picked up._
 
 The TCP can be changed if required, with `Never cancel tasks` being the most commonly used option. This prevents the scheduled wake-up of the previous execution being cancelled. The TCP can be applied on the if, with, or do (wait) statements (the setting is revealed by clicking on the cog icon while editing the statement). Any advantages of one over the other, or any interactions, are yet to be fully established. One could speculate that the TCP applies to any wait it includes, whereas that on a do (wait) just affects that one action. The TCP on the if remains a bit of a mystery. It certainly doesn't seem to apply to the then block as a whole.
 
