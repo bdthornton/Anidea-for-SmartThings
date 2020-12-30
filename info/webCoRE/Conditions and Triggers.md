@@ -12,11 +12,11 @@ then
 end if
 ```
 
-When adding the condition, the options available are divided into ‘conditions’ and ‘triggers’. The above one is a ‘condition’. How it behaves depends on the event that fired the piston. 
+When adding the condition, the options available are divided into _conditions_ and _triggers_. The above one is a _condition_. How it behaves depends on the event that fired the piston. 
 
-If the piston is handling a Door Sensor contact event, the state of the contact is determined by the event value. So if the event value is open, the condition evaluates as true. 
+If the piston is handling a `Door Sensor contact` event, the state of the `contact` is determined by the event value. So if the event value is `open`, the condition evaluates as true. 
 
-If the event is received late or processing is delayed, for example by a semaphore wait, it is possible for the contact to have changed state. So contact is open could return true even though the contact is actually closed. Similarly the condition will continue to return true for the duration of the piston instance, regardless of the actual state.
+If the event is received late or processing is delayed, for example by a [semaphore wait](Piston-waited-at-a-semaphore.md), it is possible for the `contact` to have changed state. So `contact is open` could return true even though the contact is actually closed. Similarly the condition will continue to return true for the duration of the piston instance, regardless of the actual state.
 
 If the piston is handling any other event, the condition works on the current state of the Door Sensor contact attribute (read from the device object). If the contact is open, the comparison evaluates to true, otherwise it is false. Unless the attribute is changed, evaluating the comparison will continue to give the same result.
 
