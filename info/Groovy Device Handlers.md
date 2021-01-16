@@ -2,7 +2,7 @@
 Various notes about device handlers, including this note that the terminology has changed over time but the initialism DTH (from Device Type Handlers) seems to have stuck.
 
 ## Metadata
-[Some best guess notes on how metadata used to create the UI for the SmartThings app are maintained in a separate document.](Device%20UI%20Metadata.md)
+[Some best guess notes on how metadata used to create the UI for the SmartThings app are maintained in a separate document.](Device%20Handler%20UI%20Metadata.md)
 
 ## Methods
 There are a number of methods that are called automatically by the ‘system’ for what might generally be described as configuration and administration purposes,
