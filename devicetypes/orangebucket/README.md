@@ -1,4 +1,4 @@
-#### [Anidea for SmartThings](../../../README.md) - (C) Graham Johnson (orangebucket)
+#### [Anidea for SmartThings](../../README.md) - (C) Graham Johnson (orangebucket)
 ---
 
 # Anidea for Groovy Device Handlers
