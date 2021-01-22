@@ -10,7 +10,6 @@ that creates three child component devices using the Anidea for Virtual Button d
 states via an Automation in the ST mobile app. The main component implements a custom SHTM Status capability that can be set to any of the three security system states
 in order to expose them outside Automations and the Rules API, and also the Notification capability to provide a command to set this capability in Automations, something
 which the custom capability can not yet do at the time of writing. *The deviceNotification attribute of the Notification capability does not seem to be working correctly as 
-an Automation action but does work in the Rules API. The Rules API does not seem to be correctly recognising the security state being set to ArmedStay (as it appears in the
-Rules API).*
+an Automation action but does work in the Rules API.*
 
 What hasn't been nailed so far is a way of elegantly displaying the STHM Status in something like ActionTiles without too much mucking around.
