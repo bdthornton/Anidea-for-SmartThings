@@ -2,7 +2,7 @@
 ---
 
 # Anidea for Security System Helper
-The legacy _Smart Home Monitor (SHM)_ status was actually the `alarmSystemStatus` attribute of the `Alarm System` capability in the SmartThings `location` and access to read and write this attribute was freely available to apps. The _SmartThings Home Monitor (STHM)_ works `securitySystemStatus` from the more conventionally defined `Security System` capability, again associated with the `location` and often referred to as the _Security Mode_. Access to the _Security Mode_ is more carefully controlled, currently being restricted to _Automations_ and the _Rules API_.
+The legacy _Smart Home Monitor (SHM)_ status was actually the `alarmSystemStatus` attribute of the `Alarm System` capability in the SmartThings `location` and access to read and write this attribute was freely available to apps. The _SmartThings Home Monitor (STHM)_ status is `securitySystemStatus` from the more conventionally defined `Security System` capability, again associated with the `location` and often referred to as the _Security Mode_. Access to the _Security Mode_ is more carefully controlled, currently being restricted to _Automations_ and the _Rules API_.
 
 There is demand for access to the _Security Mode_ in third party legacy apps such as _webCoRE_ or _ActionTiles_, and the typical way of achieving this is to use three virtual switches to represent the three modes. Six _Automations_ are used, three to set the switches appropriately when the _Security Mode_ changes, and three to set the _Security Mode_ when a particular switch is turned on. There are some issues with this:
 * For some reason it doesn't work for everyone. The switches somehow get out of sync.
