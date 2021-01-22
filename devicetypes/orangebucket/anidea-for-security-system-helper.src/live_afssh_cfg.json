@@ -1,0 +1,115 @@
+{
+    "type": "dth",
+    "iconUrl": null,
+    "dashboard": {
+        "states": [
+            {
+                "component": "main",
+                "capability": "circlemusic21301.sthmStatus",
+                "version": 1,
+                "values": [],
+                "patch": [],
+                "visibleCondition": null
+            }
+        ],
+        "actions": [
+
+         {
+            "component": "disarm",
+            "capability": "momentary",
+            "version": 1,
+            "values": [],
+            "patch": [],
+            "visibleCondition": null
+        }]
+    },
+    "detailView": [
+        {
+            "component": "main",
+            "capability": "circlemusic21301.sthmStatus",
+            "version": 1,
+            "values": [],
+            "patch": [],
+            "visibleCondition": null
+        },
+        {
+            "component": "disarm",
+            "capability": "momentary",
+            "version": 1,
+            "values": [],
+            "patch": [],
+            "visibleCondition": null
+        },        {
+            "component": "stay",
+            "capability": "momentary",
+            "version": 1,
+            "values": [],
+            "patch": [],
+            "visibleCondition": null
+        },
+        {
+            "component": "away",
+            "capability": "momentary",
+            "version": 1,
+            "values": [],
+            "patch": [],
+            "visibleCondition": null
+        }
+    ],
+    "automation": {
+        "conditions": [	
+            {
+            	"component": "main",
+            	"capability": "circlemusic21301.sthmStatus",
+            	"version": 1,
+            	"values": [],
+            	"patch": [],
+            	"visibleCondition": null
+            },
+	    {
+            	"component": "disarm",
+            	"capability": "button",
+            	"version": 1,
+            	"values": [],
+            	"patch": [],
+            	"visibleCondition": null
+            },
+            {
+            	"component": "stay",
+            	"capability": "button",
+            	"version": 1,
+            	"values": [],
+            	"patch": [],
+            	"visibleCondition": null
+            },
+            {
+                "component": "away",
+                "capability": "button",
+                "version": 1,
+                "values": [],
+                "patch": [],
+                "visibleCondition": null
+            }
+        ],
+        "actions": [
+            {
+                "component": "main",
+                "capability": "circlemusic21301.sthmStatus",
+                "version": 1,
+                "values": [],
+                "patch": [],
+                "visibleCondition": null
+            },
+            {
+                "component": "main",
+                "capability": "notification",
+                "version": 1,
+                "values": [],
+                "patch": [],
+                "visibleCondition": null
+            }
+        ]
+    },
+    "vid": "a3f1b774-6550-38e9-b431-4776ced2c3cf",
+    "mnmn": "SmartThingsCommunity"
+}
