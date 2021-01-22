@@ -28,4 +28,4 @@ An alternative to using _Automations_ is to use the _Rules API_. This currently 
 
 Legacy apps such as _webCoRE_ will see four devices for the helper. One will just show the device name/label and will include the `sthmStatus` attribute, and the other three with `Arm (Away)`, `Arm (Stay)` and `Disarm` appended to their labels will be the buttons and include the `push` command. _The `button` attributes and the `deviceNotification` command are accessible but are only meant to be used as above._
 
-The `Momentary` buttons work nicely in _ActionTiles_ but currently displaying the status in a useful way is the gotcha. Displaying it using polling isn't such a big deal, but displaying changes instantly takes more thinking about it. The irony is that this is the one thing the author actually needs the handler for.
+The `Momentary` buttons work nicely in _ActionTiles_ but currently displaying the status in a useful way is the gotcha. Displaying it using polling isn't such a big deal, but displaying changes instantly takes more thinking about.
