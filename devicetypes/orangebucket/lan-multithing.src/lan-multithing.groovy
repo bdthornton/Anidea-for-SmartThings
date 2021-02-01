@@ -302,9 +302,16 @@ def setdni()
 }
 
 // Have own logging routine.
-def logger(method, level = "debug", message ="")
+def logger( method, level = 'debug', message = '' )
 {
-	log."${level}" "$device.displayName [$device.name] [${method}] ${message}"
+	// Using log."${level}" for dynamic method invocation is now deprecated.
+    switch( level )
+	{
+		case 'info':	log.info  "$device.displayName [$device.name] [${method}] ${message}"
+        				break
+        default:	    log.debug "$device.displayName [$device.name] [${method}] ${message}"
+        				break
+	}
 }
 
 import groovy.json.JsonSlurper 

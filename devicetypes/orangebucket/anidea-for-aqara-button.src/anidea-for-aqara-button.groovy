@@ -7,7 +7,7 @@
  *
  * Anidea for Aqara Button
  * =======================
- * Version:	 20.08.15.00
+ * Version:	 20.12.23.00
  *
  * This device handler is a reworking of the 'Xiaomi Aqara Button' DTH by 'bspranger' that
  * adapts it for the 'new' environment. It has been stripped of the 'tiles', custom attributes,
@@ -83,6 +83,7 @@ def installed()
 	sendEvent( name: 'supportedButtonValues', value: supportedbuttons.encodeAsJSON(), displayed: false                      )
 	sendEvent( name: 'numberOfButtons',       value: 1,                               displayed: false                      )
     sendEvent( name: 'button',                value: 'down_6x', 					  displayed: false, isStateChange: true )
+    sendEvent( name: 'battery',				  value: 50, unit: '%',                   displayed: false                      )
 }
 
 // updated() seems to be called after installed() when the device is first installed, but not when
@@ -96,7 +97,14 @@ def updated()
 
 def logger( method, level = 'debug', message = '' )
 {
-	log."${level}" "$device.displayName [$device.name] [${method}] ${message}"
+	// Using log."${level}" for dynamic method invocation is now deprecated.
+    switch( level )
+	{
+		case 'info':	log.info  "$device.displayName [$device.name] [${method}] ${message}"
+        				break
+        default:	    log.debug "$device.displayName [$device.name] [${method}] ${message}"
+        				break
+	}
 }
 
 // ping() is the command for the Health Check capability. It is suspected that it is used when 
@@ -265,5 +273,5 @@ Map battery( raw )
 	}
  
     // Try isStateChange true in case that is needed by Health Check.
-	return [ name: 'battery', value: percent, isStateChange: true ]
+	return [ name: 'battery', value: percent, unit: '%', isStateChange: true ]
 }

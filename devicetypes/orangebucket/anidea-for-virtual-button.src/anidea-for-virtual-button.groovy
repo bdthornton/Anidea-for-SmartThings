@@ -6,7 +6,7 @@
  * --------------------------------------------------------------------------------- *
  * Anidea for Virtual Button
  * =========================
- * Version:	 20.08.21.00
+ * Version:	 20.12.23.00
  *
  * This device handler implements a simple virtual button using the Button and
  * Momentary capabilities.
@@ -64,7 +64,14 @@ def updated()
 
 def logger( method, level = 'debug', message = '' )
 {
-	log."${level}" "$device.displayName [$device.name] [${method}] ${message}"
+	// Using log."${level}" for dynamic method invocation is now deprecated.
+    switch( level )
+	{
+		case 'info':	log.info  "$device.displayName [$device.name] [${method}] ${message}"
+        				break
+        default:	    log.debug "$device.displayName [$device.name] [${method}] ${message}"
+        				break
+	}
 }
 
 // push() is the command for the Momentary capability. Make it press the button once.

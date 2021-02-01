@@ -27,6 +27,7 @@ The repository layout is compatible with the IDE for the 'classic' Device Handle
   - [Anidea for Odds and Sods](devicetypes/orangebucket/README.md#anidea-for-odds-and-sods)
     - Anidea for HTTP Ping
     - Anidea for Scene Momentary
+    - Anidea for Security System Helper
     - LAN MultiThing
 - [Anidea for Automations](automations/orangebucket/README.md)
   - Anidea for WebHook Wrapper

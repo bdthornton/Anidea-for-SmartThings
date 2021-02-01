@@ -1,4 +1,4 @@
-#### [Anidea for SmartThings](../../../README.md) - (C) Graham Johnson (orangebucket)
+#### [Anidea for SmartThings](../../README.md) - (C) Graham Johnson (orangebucket)
 ---
 
 # Anidea for Groovy Device Handlers
@@ -68,3 +68,7 @@ A post on Facebook mentioned that the Simulated Temperature Sensor didn't work w
 - [LAN Multithing](lan-multithing.src)
 
 The last group of DTHs probably aren't of any practical use to other users though there might be something in the code that is of interest. [Anidea for HTTP Ping](anidea-for-http-ping.src) was written to detect a TV being switched on as active motion, back when Smart Lighting appeared to behave sensibly with multiple motion sensors. [Anidea for Scene Momentary](anidea-for-scene-momentary.src) is a momentary button that activates a scene, which could have been useful in ActionTiles pending the arrival of the official integration (which is now live), though it is also easy to use a bit of JavaScript in a URL Shortcut or a virtual switch with a trivial automation. [LAN Multithing](lan-multithing.src) was largely written as a learning exercise, though it does have a practical application. It really is a bit contrived though.
+
+- [Anidea for Security System Helper](anidea-for-security-system-helper.src)
+
+The same can also be said of the [Anidea for Security System Helper](anidea-for-security-system-helper.src) DTH. This is something being developed to assist with controlling STHM, if that is considered desirable. The standard trick of using three virtual switches and six Automations doesn't work for everyone for some reason, which isn't at all clear, and really seems to be asking for trouble anyway.

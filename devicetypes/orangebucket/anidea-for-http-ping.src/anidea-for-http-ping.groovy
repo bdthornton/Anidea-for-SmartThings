@@ -7,7 +7,7 @@
  *
  * Anidea for HTTP Ping
  * ====================
- * Version: 20.08.27.00
+ * Version: 20.12.23.00
  *
  * This device handler implements a number of binary sensors which are active when a
  * specified HTTP server on the hub's local network can be reached. Every fifteen 

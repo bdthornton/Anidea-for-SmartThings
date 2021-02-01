@@ -1,8 +1,8 @@
 #### [Anidea for SmartThings](../../../README.md) > [Anidea for Lumi Devices](../README.md#anidea-for-lumi-devices) - (C) Graham Johnson (orangebucket)
 ---
- s
+
 # Anidea for Aqara Vibration
-The reworking of the handler for the vibration sensor, model DJT11LM, seems to be most of the way there, although a lot of tidying up of the code is still required and there are custom attributes and commands that need replacing or removing. At the moment it is suggested this handler should be used with a degree of caution.
+The reworking of the handler for the vibration sensor, model DJT11LM, seems to be most of the way there, although a lot of tidying up of the code is still required and there are custom attributes and commands that need replacing or removing. At the moment it is suggested this handler should be used with a degree of caution. In particular a test device using it doesn't seem too enthusiastic at staying online for long periods.
 
 *As of October 2020, tiles are being displayed on the device details page that suggest they can be used for registering the open and closed positions for the sensor. The reality is that pressing the button just causes an icon to spin around instead of running the commands in the handler. This wasn't really intended for public consumption but accidentally got caught up in a GitHub pull request for something else. If you do need to set the open and closed positions you can call the `setopen` or `setclosed` commands using webCoRE. That isn't much use but that is the state of play at the moment.*
 

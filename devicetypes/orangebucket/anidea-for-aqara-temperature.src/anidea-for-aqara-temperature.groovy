@@ -7,7 +7,7 @@
  *
  * Anidea for Aqara Temperature
  * ============================
- * Version:	 20.11.09.00
+ * Version:	 20.12.23.00
  *
  * This device handler is a reworking of the 'Xiaomi Aqara Temperature Humidity Sensor' DTH by
  * 'bspranger' that adapts it for the 'new' environment. It has been stripped of the 'tiles', 
@@ -17,13 +17,16 @@
  */
  
 metadata
-{
-	// Please be aware that the 'vid' may be subject to change.
-	definition ( name: 'Anidea for Aqara Temperature', namespace: 'orangebucket', author: 'Graham Johnson',
-    			 ocfDeviceType: 'oic.d.thermostat', mnmn: 'SmartThingsCommunity', vid: 'be5ff498-cfb1-37ee-b675-5464440f45b9' )
-                 
+{                 
+    // Use ocfDeviceType: 'oic.d.thermostat' for a thermometer icon.
+    // Use ocfDeviceType: 'x.com.st.d.humidifier' for a humidifier icon.
+    //
     // Use vid: 'be5ff498-cfb1-37ee-b675-5464440f45b9' to display temperature in the dashboard tile.
     // Use vid: '6bb2558f-1cf8-3625-acae-d8d6a9158b3f' to display humidity in the dashboard tile.
+    //
+    // Please be aware that the 'vid' may be subject to change.
+	definition ( name: 'Anidea for Aqara Temperature', namespace: 'orangebucket', author: 'Graham Johnson',
+    			 ocfDeviceType: 'oic.d.thermostat', mnmn: 'SmartThingsCommunity', vid: 'be5ff498-cfb1-37ee-b675-5464440f45b9' )
 	{
             capability 'Temperature Measurement'
             capability 'Relative Humidity Measurement'
@@ -73,7 +76,14 @@ def updated()
 
 def logger( method, level = 'debug', message = '' )
 {
-	log."${level}" "$device.displayName [$device.name] [${method}] ${message}"
+	// Using log."${level}" for dynamic method invocation is now deprecated.
+    switch( level )
+	{
+		case 'info':	log.info  "$device.displayName [$device.name] [${method}] ${message}"
+        				break
+        default:	    log.debug "$device.displayName [$device.name] [${method}] ${message}"
+        				break
+	}
 }
 
 def ping()
@@ -271,5 +281,5 @@ Map battery( raw )
         logger( 'battery', 'debug', 'checkInterval 7800 seconds' )
 	}
  
-	return [ name: 'battery', value: percent, isStateChange: true ]
+	return [ name: 'battery', value: percent, unit: '%', isStateChange: true ]
 }
