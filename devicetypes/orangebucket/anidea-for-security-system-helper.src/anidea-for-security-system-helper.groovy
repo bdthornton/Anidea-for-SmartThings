@@ -7,7 +7,7 @@
  *
  * Anidea for Security System Helper
  * =================================
- * Version:	 21.01.22.00
+ * Version:	 21.02.02.00
  *
  * This DTH implements a helper device to assist in setting and exposing the
  * location security system outside of the mobile apps, Automations and the Rules
@@ -15,7 +15,8 @@
  * devices, one for each security state, that use the 'Anidea for Virtual Button'
  * handler to provide Button and Momentary capabilities.  The status side of things
  * uses the Notification capability as a 'stock' way of allowing the attribute of a
- * custom capability to be set to one of the security states.
+ * custom capability to be set to one of the security states (custom capabilities
+ * were not supported in Automations at the time).
  *
  * The actual arming/disarming of the security system, and the updating of the 
  * status from the security system status, requires external automations.
@@ -24,7 +25,7 @@
 metadata
 {
 	definition( name: 'Anidea for Security System Helper', namespace: 'orangebucket', author: 'Graham Johnson', mcdSync: true,
-    			ocfDeviceType: 'oic.wk.d', mnmn: 'SmartThingsCommunity', vid: 'a3f1b774-6550-38e9-b431-4776ced2c3cf' )
+    			ocfDeviceType: 'oic.wk.d', mnmn: 'SmartThingsCommunity', vid: 'f32b4796-d5f6-35ce-ab7a-8a6f29f4ee4e' )
     {
         //
 		capability 'circlemusic21301.sthmStatus'
