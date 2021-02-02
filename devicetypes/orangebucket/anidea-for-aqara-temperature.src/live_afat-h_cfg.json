@@ -1,8 +1,5 @@
 {
-    "mnmn": "SmartThingsCommunity",
-    "vid": "d86f0075-3603-3184-b263-6900fe8304d4",
     "type": "dth",
-    "dpInfo": null,
     "iconUrl": null,
     "dashboard": {
         "states": [
@@ -11,6 +8,7 @@
                 "capability": "relativeHumidityMeasurement",
                 "version": 1,
                 "values": [],
+                "patch": [],
                 "visibleCondition": null
             }
         ],
@@ -22,6 +20,7 @@
             "capability": "temperatureMeasurement",
             "version": 1,
             "values": [],
+            "patch": [],
             "visibleCondition": null
         },
         {
@@ -29,6 +28,7 @@
             "capability": "relativeHumidityMeasurement",
             "version": 1,
             "values": [],
+            "patch": [],
             "visibleCondition": null
         },
         {
@@ -36,6 +36,7 @@
             "capability": "atmosphericPressureMeasurement",
             "version": 1,
             "values": [],
+            "patch": [],
             "visibleCondition": null
         },
         {
@@ -43,6 +44,7 @@
             "capability": "battery",
             "version": 1,
             "values": [],
+            "patch": [],
             "visibleCondition": null
         }
     ],
@@ -53,6 +55,7 @@
                 "capability": "temperatureMeasurement",
                 "version": 1,
                 "values": [],
+                "patch": [],
                 "visibleCondition": null
             },
             {
@@ -60,6 +63,7 @@
                 "capability": "relativeHumidityMeasurement",
                 "version": 1,
                 "values": [],
+                "patch": [],
                 "visibleCondition": null
             },
             {
@@ -67,6 +71,7 @@
                 "capability": "battery",
                 "version": 1,
                 "values": [],
+                "patch": [],
                 "visibleCondition": null
             },
             {
@@ -74,6 +79,7 @@
                 "capability": "atmosphericPressureMeasurement",
                 "version": 1,
                 "values": [],
+                "patch": [],
                 "visibleCondition": null
             }
         ],
@@ -83,6 +89,7 @@
                 "capability": "temperatureMeasurement",
                 "version": 1,
                 "values": [],
+                "patch": [],
                 "visibleCondition": null
             },
             {
@@ -90,6 +97,7 @@
                 "capability": "relativeHumidityMeasurement",
                 "version": 1,
                 "values": [],
+                "patch": [],
                 "visibleCondition": null
             },
             {
@@ -97,6 +105,7 @@
                 "capability": "battery",
                 "version": 1,
                 "values": [],
+                "patch": [],
                 "visibleCondition": null
             },
             {
@@ -104,8 +113,13 @@
                 "capability": "atmosphericPressureMeasurement",
                 "version": 1,
                 "values": [],
+                "patch": [],
                 "visibleCondition": null
             }
         ]
-    }
+    },
+    "presentationId": "6bb2558f-1cf8-3625-acae-d8d6a9158b3f",
+    "manufacturerName": "SmartThingsCommunity",
+    "vid": "6bb2558f-1cf8-3625-acae-d8d6a9158b3f",
+    "mnmn": "SmartThingsCommunity"
 }
