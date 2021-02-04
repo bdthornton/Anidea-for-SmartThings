@@ -1,52 +1,47 @@
 {
-    "mnmn": "SmartThingsCommunity",
-    "vid": "226d1613-5edb-3039-b79b-383334366fe0",
-    "type": "dth",
-    "dpInfo": null,
-    "iconUrl": null,
     "dashboard": {
-        "states": [ 
+        "states": [
             {
                 "component": "main",
                 "capability": "button",
                 "version": 1,
                 "values": [],
-                "visibleCondition": null
+                "patch": []
             },
             {
                 "component": "main",
                 "capability": "battery",
                 "version": 1,
                 "values": [],
-                "visibleCondition": null
+                "patch": []
             },
             {
                 "component": "main",
                 "capability": "momentary",
                 "version": 1,
                 "values": [],
-                "visibleCondition": null
+                "patch": []
             },
             {
                 "component": "main",
                 "capability": "sensor",
                 "version": 1,
                 "values": [],
-                "visibleCondition": null
+                "patch": []
             },
             {
                 "component": "main",
                 "capability": "actuator",
                 "version": 1,
                 "values": [],
-                "visibleCondition": null
+                "patch": []
             },
             {
                 "component": "main",
                 "capability": "healthCheck",
                 "version": 1,
                 "values": [],
-                "visibleCondition": null
+                "patch": []
             }
         ],
         "actions": [
@@ -55,42 +50,35 @@
                 "capability": "momentary",
                 "version": 1,
                 "values": [],
-                "visibleCondition": null
+                "patch": []
             },
             {
                 "component": "main",
                 "capability": "battery",
                 "version": 1,
                 "values": [],
-                "visibleCondition": null
+                "patch": []
             },
             {
                 "component": "main",
                 "capability": "button",
                 "version": 1,
                 "values": [],
-                "visibleCondition": null
+                "patch": []
             },
             {
                 "component": "main",
                 "capability": "sensor",
                 "version": 1,
                 "values": [],
-                "visibleCondition": null
-            },
-            {
-                "component": "main",
-                "capability": "actuator",
-                "version": 1,
-                "values": [],
-                "visibleCondition": null
+                "patch": []
             },
             {
                 "component": "main",
                 "capability": "healthCheck",
                 "version": 1,
                 "values": [],
-                "visibleCondition": null
+                "patch": []
             }
         ]
     },
@@ -100,42 +88,42 @@
             "capability": "battery",
             "version": 1,
             "values": [],
-            "visibleCondition": null
+            "patch": []
         },
         {
             "component": "main",
             "capability": "momentary",
             "version": 1,
             "values": [],
-            "visibleCondition": null
+            "patch": []
         },
         {
             "component": "main",
             "capability": "button",
             "version": 1,
             "values": [],
-            "visibleCondition": null
+            "patch": []
         },
         {
             "component": "main",
             "capability": "sensor",
             "version": 1,
             "values": [],
-            "visibleCondition": null
+            "patch": []
         },
         {
             "component": "main",
             "capability": "actuator",
             "version": 1,
             "values": [],
-            "visibleCondition": null
+            "patch": []
         },
         {
             "component": "main",
             "capability": "healthCheck",
             "version": 1,
             "values": [],
-            "visibleCondition": null
+            "patch": []
         }
     ],
     "automation": {
@@ -145,42 +133,48 @@
                 "capability": "battery",
                 "version": 1,
                 "values": [],
-                "visibleCondition": null
+                "patch": []
             },
             {
                 "component": "main",
                 "capability": "momentary",
                 "version": 1,
                 "values": [],
-                "visibleCondition": null
+                "patch": []
             },
             {
                 "component": "main",
                 "capability": "button",
                 "version": 1,
                 "values": [],
-                "visibleCondition": null
+                "patch": [
+                    {
+                        "op": "replace",
+                        "path": "/0/list/supportedValues",
+                        "value": "supportedButtonValues.value"
+                    }
+                ]
             },
             {
                 "component": "main",
                 "capability": "sensor",
                 "version": 1,
                 "values": [],
-                "visibleCondition": null
+                "patch": []
             },
             {
                 "component": "main",
                 "capability": "actuator",
                 "version": 1,
                 "values": [],
-                "visibleCondition": null
+                "patch": []
             },
             {
                 "component": "main",
                 "capability": "healthCheck",
                 "version": 1,
                 "values": [],
-                "visibleCondition": null
+                "patch": []
             }
         ],
         "actions": [
@@ -189,43 +183,49 @@
                 "capability": "battery",
                 "version": 1,
                 "values": [],
-                "visibleCondition": null
+                "patch": []
             },
             {
                 "component": "main",
                 "capability": "momentary",
                 "version": 1,
                 "values": [],
-                "visibleCondition": null
+                "patch": []
             },
             {
                 "component": "main",
                 "capability": "button",
                 "version": 1,
                 "values": [],
-                "visibleCondition": null
+                "patch": []
             },
             {
                 "component": "main",
                 "capability": "sensor",
                 "version": 1,
                 "values": [],
-                "visibleCondition": null
+                "patch": []
             },
             {
                 "component": "main",
                 "capability": "actuator",
                 "version": 1,
                 "values": [],
-                "visibleCondition": null
+                "patch": []
             },
             {
                 "component": "main",
                 "capability": "healthCheck",
                 "version": 1,
                 "values": [],
-                "visibleCondition": null
+                "patch": []
             }
         ]
-    }
+    },
+    "type": "dth",
+    "presentationId": "fc79f14c-fb69-3d97-a4a7-1b8852456bf9",
+    "manufacturerName": "SmartThingsCommunity",
+    "vid": "fc79f14c-fb69-3d97-a4a7-1b8852456bf9",
+    "mnmn": "SmartThingsCommunity",
+    "version": "0.0.1"
 }
