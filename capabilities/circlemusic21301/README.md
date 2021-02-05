@@ -11,8 +11,13 @@ Filenames have the form `capabilityId.json` for capability and `capabilityId-pre
 
 Capability|Description
 |--|--|
-Contact Commands|Define setter commands for the contact sensor without a UI.
-Motion Commands|Define setter commands for the motion sensor without a UI.
-Occupancy Commands|Define setter commands for the occupancy sensor without a UI.
-Presence Commands|Define setter commands for the presence sensor without a UI.
-Water Commands|Define setter commands for the water sensor without a UI.
+Contact Commands|Define setter commands for the standard Contact Sensor capability.
+Motion Commands|Define setter commands for the standard Motion Sensor capability.
+Occupancy Commands|Define setter commands for the standard Occupancy Sensor capability.
+Presence Commands|Define setter commands for the standard Presence Sensor capability.
+Water Commands|Define setter commands for the standard Water Sensor capability.
+
+The '... Commands' custom capabilities define commands for setting the attribute of the related standard capabilities to the active or inactive state.
+As they do not have attributes they do not define dashboard states or automation conditions. Support of commands for setting particular attribute values 
+is lagging behind single setter commands, but when the technology permits the dashboard actions and details view will be supported. The automation actions
+are already being supported.
