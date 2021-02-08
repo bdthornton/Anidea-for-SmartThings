@@ -15,6 +15,8 @@ Presence Commands|Define setter commands for the standard Presence Sensor capabi
 Water Commands|Define setter commands for the standard Water Sensor capability.
 
 The '... Commands' custom capabilities define commands for setting the attribute of the related standard capabilities to the active or inactive state.
-As they do not have attributes they do not define dashboard states or automation conditions. Support of commands for setting particular attribute values 
-is lagging behind single setter commands, but when the technology permits the dashboard actions and details view will be supported. The automation actions
+As they do not have attributes the presentations do not define dashboard states or automation conditions. Support of commands for setting particular attribute values 
+is lagging behind single setter commands, but when the technology permits the dashboard actions and details view will be added. The automation actions
 are already being supported.
+
+_The presentations could have the code for the dashboard and details view added now and wait for the SmartThings apps to catch up, but they don't always get things right first time._
