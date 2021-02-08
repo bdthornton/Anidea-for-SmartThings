@@ -4,7 +4,28 @@
         "actions": []
     },
     "detailView": [],
-    "automation": {},
+    "automation": {
+        "actions": [
+            {
+                "label": "Set Motion",
+                "displayType": "list",
+                "list": {
+                    "alternatives": [
+                        {
+                            "key": "active",
+                            "value": "Motion Detected",
+                            "type": "active"
+                        },
+                        {
+                            "key": "inactive",
+                            "value": "No Motion",
+                            "type": "inactive"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "id": "circlemusic21301.motionCommands",
     "version": 1
 }

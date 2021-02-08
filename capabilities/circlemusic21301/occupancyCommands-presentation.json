@@ -4,7 +4,28 @@
         "actions": []
     },
     "detailView": [],
-    "automation": {},
+    "automation": {
+        "actions": [
+      {
+        "label": "Set Occupancy",
+        "displayType": "list",
+        "list": {
+          "alternatives": [
+            {
+              "key": "occupied",
+              "value": "Occupied",
+              "type": "active"
+            },
+            {
+              "key": "unoccupied",
+              "value": "Unoccupied",
+              "type": "inactive"
+            }
+          ]
+        }
+      }
+    ]
+    },
     "id": "circlemusic21301.occupancyCommands",
     "version": 1
 }

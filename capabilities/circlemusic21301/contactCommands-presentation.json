@@ -4,7 +4,28 @@
         "actions": []
     },
     "detailView": [],
-    "automation": {},
+    "automation": {
+        "actions": [
+            {
+                "label": "Set Contact",
+                "displayType": "list",
+                "list": {
+                    "alternatives": [
+                        {
+                            "key": "open",
+                            "value": "Open",
+                            "type": "active"
+                        },
+                        {
+                            "key": "close",
+                            "value": "Close",
+                            "type": "inactive"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "id": "circlemusic21301.contactCommands",
     "version": 1
 }

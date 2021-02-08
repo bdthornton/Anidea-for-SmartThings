@@ -4,7 +4,28 @@
         "actions": []
     },
     "detailView": [],
-    "automation": {},
+    "automation": {
+        "actions": [
+            {
+                "label": "Set Water",
+                "displayType": "list",
+                "list": {
+                    "alternatives": [
+                        {
+                            "key": "wet",
+                            "value": "Water Detected",
+                            "type": "active"
+                        },
+                        {
+                            "key": "dry",
+                            "value": "No Water Detected",
+                            "type": "inactive"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "id": "circlemusic21301.waterCommands",
     "version": 1
 }

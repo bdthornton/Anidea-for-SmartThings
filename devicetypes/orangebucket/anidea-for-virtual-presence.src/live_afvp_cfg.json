@@ -3,21 +3,7 @@
         "states": [
             {
                 "component": "main",
-                "capability": "button",
-                "version": 1,
-                "values": [],
-                "patch": []
-            },
-            {
-                "component": "main",
-                "capability": "battery",
-                "version": 1,
-                "values": [],
-                "patch": []
-            },
-            {
-                "component": "main",
-                "capability": "momentary",
+                "capability": "presenceSensor",
                 "version": 1,
                 "values": [],
                 "patch": []
@@ -31,14 +17,28 @@
             },
             {
                 "component": "main",
-                "capability": "actuator",
+                "capability": "healthCheck",
                 "version": 1,
                 "values": [],
                 "patch": []
             },
             {
                 "component": "main",
-                "capability": "healthCheck",
+                "capability": "occupancySensor",
+                "version": 1,
+                "values": [],
+                "patch": []
+            },
+            {
+                "component": "main",
+                "capability": "circlemusic21301.presenceCommands",
+                "version": 1,
+                "values": [],
+                "patch": []
+            },
+            {
+                "component": "main",
+                "capability": "circlemusic21301.occupancyCommands",
                 "version": 1,
                 "values": [],
                 "patch": []
@@ -47,21 +47,7 @@
         "actions": [
             {
                 "component": "main",
-                "capability": "momentary",
-                "version": 1,
-                "values": [],
-                "patch": []
-            },
-            {
-                "component": "main",
-                "capability": "battery",
-                "version": 1,
-                "values": [],
-                "patch": []
-            },
-            {
-                "component": "main",
-                "capability": "button",
+                "capability": "presenceSensor",
                 "version": 1,
                 "values": [],
                 "patch": []
@@ -76,6 +62,27 @@
             {
                 "component": "main",
                 "capability": "healthCheck",
+                "version": 1,
+                "values": [],
+                "patch": []
+            },
+            {
+                "component": "main",
+                "capability": "occupancySensor",
+                "version": 1,
+                "values": [],
+                "patch": []
+            },
+            {
+                "component": "main",
+                "capability": "circlemusic21301.presenceCommands",
+                "version": 1,
+                "values": [],
+                "patch": []
+            },
+            {
+                "component": "main",
+                "capability": "circlemusic21301.occupancyCommands",
                 "version": 1,
                 "values": [],
                 "patch": []
@@ -85,21 +92,28 @@
     "detailView": [
         {
             "component": "main",
-            "capability": "battery",
+            "capability": "presenceSensor",
             "version": 1,
             "values": [],
             "patch": []
         },
         {
             "component": "main",
-            "capability": "momentary",
+            "capability": "occupancySensor",
             "version": 1,
             "values": [],
             "patch": []
         },
         {
             "component": "main",
-            "capability": "button",
+            "capability": "circlemusic21301.presenceCommands",
+            "version": 1,
+            "values": [],
+            "patch": []
+        },
+        {
+            "component": "main",
+            "capability": "circlemusic21301.occupancyCommands",
             "version": 1,
             "values": [],
             "patch": []
@@ -107,13 +121,6 @@
         {
             "component": "main",
             "capability": "sensor",
-            "version": 1,
-            "values": [],
-            "patch": []
-        },
-        {
-            "component": "main",
-            "capability": "actuator",
             "version": 1,
             "values": [],
             "patch": []
@@ -130,41 +137,35 @@
         "conditions": [
             {
                 "component": "main",
-                "capability": "battery",
+                "capability": "presenceSensor",
                 "version": 1,
                 "values": [],
                 "patch": []
             },
             {
                 "component": "main",
-                "capability": "momentary",
+                "capability": "occupancySensor",
                 "version": 1,
                 "values": [],
                 "patch": []
             },
             {
                 "component": "main",
-                "capability": "button",
+                "capability": "circlemusic21301.presenceCommands",
                 "version": 1,
                 "values": [],
-                "patch": [
-                    {
-                        "op": "replace",
-                        "path": "/0/list/supportedValues",
-                        "value": "supportedButtonValues.value"
-                    }
-                ]
+                "patch": []
+            },
+            {
+                "component": "main",
+                "capability": "circlemusic21301.occupancyCommands",
+                "version": 1,
+                "values": [],
+                "patch": []
             },
             {
                 "component": "main",
                 "capability": "sensor",
-                "version": 1,
-                "values": [],
-                "patch": []
-            },
-            {
-                "component": "main",
-                "capability": "actuator",
                 "version": 1,
                 "values": [],
                 "patch": []
@@ -180,21 +181,28 @@
         "actions": [
             {
                 "component": "main",
-                "capability": "battery",
+                "capability": "presenceSensor",
                 "version": 1,
                 "values": [],
                 "patch": []
             },
             {
                 "component": "main",
-                "capability": "momentary",
+                "capability": "occupancySensor",
                 "version": 1,
                 "values": [],
                 "patch": []
             },
             {
                 "component": "main",
-                "capability": "button",
+                "capability": "circlemusic21301.presenceCommands",
+                "version": 1,
+                "values": [],
+                "patch": []
+            },
+            {
+                "component": "main",
+                "capability": "circlemusic21301.occupancyCommands",
                 "version": 1,
                 "values": [],
                 "patch": []
@@ -202,13 +210,6 @@
             {
                 "component": "main",
                 "capability": "sensor",
-                "version": 1,
-                "values": [],
-                "patch": []
-            },
-            {
-                "component": "main",
-                "capability": "actuator",
                 "version": 1,
                 "values": [],
                 "patch": []
@@ -223,9 +224,9 @@
         ]
     },
     "type": "dth",
-    "presentationId": "fc79f14c-fb69-3d97-a4a7-1b8852456bf9",
+    "presentationId": "e62d46e4-450e-3166-9eb4-d0cb3d74b9d5",
     "manufacturerName": "SmartThingsCommunity",
-    "vid": "fc79f14c-fb69-3d97-a4a7-1b8852456bf9",
+    "vid": "e62d46e4-450e-3166-9eb4-d0cb3d74b9d5",
     "mnmn": "SmartThingsCommunity",
     "version": "0.0.1"
 }

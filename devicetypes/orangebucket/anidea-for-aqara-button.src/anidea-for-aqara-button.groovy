@@ -7,7 +7,7 @@
  *
  * Anidea for Aqara Button
  * =======================
- * Version:	 20.12.23.00
+ * Version:	 21.02.03.00
  *
  * This device handler is a reworking of the 'Xiaomi Aqara Button' DTH by 'bspranger' that
  * adapts it for the 'new' environment. It has been stripped of the 'tiles', custom attributes,
@@ -26,7 +26,7 @@ import physicalgraph.zigbee.zcl.DataType
 metadata
 {
 	definition( name: 'Anidea for Aqara Button', namespace: 'orangebucket', author: 'Graham Johnson',
-    			ocfDeviceType: 'x.com.st.d.remotecontroller', mnmn: 'SmartThingsCommunity', vid: '226d1613-5edb-3039-b79b-383334366fe0' )
+    			ocfDeviceType: 'x.com.st.d.remotecontroller', mnmn: 'SmartThingsCommunity', vid: 'fc79f14c-fb69-3d97-a4a7-1b8852456bf9' )
     {
     	//
 		capability 'Button'

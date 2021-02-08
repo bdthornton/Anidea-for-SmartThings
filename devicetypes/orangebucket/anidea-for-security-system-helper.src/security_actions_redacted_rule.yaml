@@ -1,0 +1,54 @@
+name: Security Actions
+actions:
+  - if:
+      equals:
+        left:
+          location:
+            attribute: Security
+        right:
+          string: ArmedAway
+      then:
+        - command:
+            devices:
+              - <UUID of Security System Helper>
+            commands:
+              - component: main
+                capability: notification
+                command: deviceNotification
+                arguments:
+                  - string: armedAway
+  - if:
+      equals:
+        left:
+          location:
+            attribute: Security
+        right:
+          string: ArmedStay
+      then:
+        - command:
+            devices:
+              - <UUID of Security System Helper>
+            commands:
+              - component: main
+                capability: notification
+                command: deviceNotification
+                arguments:
+                  - string: armedStay
+  - if:
+      equals:
+        left:
+          location:
+            attribute: Security
+        right:
+          string: Disarmed
+      then:
+        - command:
+            devices:
+              - <UUID of Security System Helper>
+            commands:
+              - component: main
+                capability: notification
+                command: deviceNotification
+                arguments:
+                  - string: disarmed
+

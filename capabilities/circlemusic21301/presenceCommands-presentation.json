@@ -4,7 +4,28 @@
         "actions": []
     },
     "detailView": [],
-    "automation": {},
+    "automation": {
+        "actions": [
+      {
+        "label": "Set Presence",
+        "displayType": "list",
+        "list": {
+          "alternatives": [
+            {
+              "key": "arrived",
+              "value": "Present / Arrived",
+              "type": "active"
+            },
+            {
+              "key": "departed",
+              "value": "Not Present / Departed",
+              "type": "inactive"
+            }
+          ]
+        }
+      }
+    ]
+    },
     "id": "circlemusic21301.presenceCommands",
     "version": 1
 }
