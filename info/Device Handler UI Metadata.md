@@ -108,9 +108,9 @@ e.g. `12AB_large-widget_ui.json`. A similar file referenced by the VID Selector 
 When the CLI tool was introduced the terms *Device Config* and *Device Presentation* appeared and the terms *Config* and *Presentation* are being retrofitted to the
 Device Profiles tool in the Developer Workspace to make things more consistent. 
 
-The *Device Presentation* is a JSON file, typically around 100 kb in size,
-that defines the UI for the 'new' app, or indeed any other UI. It is the same thing as the *UI Manifest* or *Presentation Resource*, though those generated for
-DTHs don't define the device icon at the time of writing.
+The *Device Presentation* is a JSON file, that used to be typically around 100 kb in size,
+that defines the UI for the 'new' app, or indeed any other UI. It was the same thing as the *UI Manifest* or *Presentation Resource*, though those generated for
+DTHs didn't define the device icon. Sometime around the end of 2020 or early in 2021 things changed and the presentation that the API produced became a much smaller JSON file only featuring the requested language and being much more recognisable as the *Device Config* fleshed out with *Capability Presentations*.
 
 The *Device Config* is a much smaller JSON file that defines the user configurable parts of the *Device Presentation*. It defines which capabilities should
 be used for the dashboard status, dashboard actions, the details view, automation conditions and automation actions. Each capability, standard or custom, has a
