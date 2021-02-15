@@ -7,8 +7,6 @@
  *
  * Anidea for Aqara Button
  * =======================
- * Version:	 21.02.03.00
- *
  * This device handler is a reworking of the 'Xiaomi Aqara Button' DTH by 'bspranger' that
  * adapts it for the 'new' environment. It has been stripped of the 'tiles', custom attributes,
  * all its preferences and most of the logging. Incorrectly implemented health checking features
@@ -20,12 +18,15 @@
  * Code has been ported for the WXKG11LM (two versions), and the WXKG12LM. This handler has only
  * been tested with the WXKG11LM with what is said to be older firmware.
  */
+ 
+def ai_v = '21.02.15.00'
+def ai_r = true
 
 import physicalgraph.zigbee.zcl.DataType
 
 metadata
 {
-	definition( name: 'Anidea for Aqara Button', namespace: 'orangebucket', author: 'Graham Johnson',
+	definition( name: 'Anidea for Aqara Button' + ( ai_r ? '' : " ${ai_v}" ), namespace: 'orangebucket', author: 'Graham Johnson',
     			ocfDeviceType: 'x.com.st.d.remotecontroller', mnmn: 'SmartThingsCommunity', vid: 'fc79f14c-fb69-3d97-a4a7-1b8852456bf9' )
     {
     	//

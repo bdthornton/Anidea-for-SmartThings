@@ -7,7 +7,7 @@
  *
  * Anidea for Virtual Presence
  * ===========================
- * Version:	 20.12.23.00
+ * Version:	 21.02.04.00
  *
  * A virtual presence and occupancy sensor that handles the two capabilities separately. 
  * Custom commands use standard names where available.
@@ -15,7 +15,8 @@
 
 metadata 
 {
-    definition ( name: 'Anidea for Virtual Presence', namespace: 'orangebucket', author: 'Graham Johnson' ) 
+    definition ( name: 'Anidea for Virtual Presence', namespace: 'orangebucket', author: 'Graham Johnson',
+    			 mnmn: 'SmartThingsCommunity', vid: 'e62d46e4-450e-3166-9eb4-d0cb3d74b9d5' ) 
     {
     	// The DTH can work as both a Presence Sensor and an Occupancy Sensor.  The two
         // capabilities are not linked within the handler.

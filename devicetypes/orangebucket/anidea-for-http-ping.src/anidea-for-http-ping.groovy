@@ -7,17 +7,18 @@
  *
  * Anidea for HTTP Ping
  * ====================
- * Version: 20.12.23.00
- *
  * This device handler implements a number of binary sensors which are active when a
  * specified HTTP server on the hub's local network can be reached. Every fifteen 
  * minutes the status is checked and set to active if a response is received. If
  * no response is received within sixty seconds it is set to inactive.
  */
 
+def ai_v = '21.02.15.00'
+def ai_r = true
+
 metadata
 {
-	definition ( name: 'Anidea for HTTP Ping', namespace: 'orangebucket', author: 'Graham Johnson',
+	definition ( name: 'Anidea for HTTP Ping' + ( ai_r ? '' : " ${ai_v}" ), namespace: 'orangebucket', author: 'Graham Johnson',
     			 ocfDeviceType: 'oic.wk.d', mnmn: 'SmartThingsCommunity', vid: '2a00b04e-2dc9-3001-949c-d5b8a21a968f' )
     {
         capability 'Contact Sensor'

@@ -7,20 +7,21 @@
  *
  * Anidea for Aqara Motion
  * =======================
- * Version:	 20.12.23.00
- *
  * This device handler is a reworking of the 'Xiaomi Aqara Motion' DTH by 'bspranger' that
  * adapts it for the 'new' environment. It has been stripped of the 'tiles', custom attributes,
  * most of its preferences, and much of the logging. The Health Check has been tidied up. The
  * handler supports 'active' and 'inactive' commands to override the status.
  */
+ 
+ def ai_v = '21.02.15.00'
+ def ai_r = true
 
 import groovy.json.JsonOutput
 import physicalgraph.zigbee.zcl.DataType
 
 metadata
 {
-    definition( name: 'Anidea for Aqara Motion', namespace: 'orangebucket', author: 'Graham Johnson', 
+    definition( name: 'Anidea for Aqara Motion' + ( ai_r ? '' : " ${ai_v}" ), namespace: 'orangebucket', author: 'Graham Johnson', 
     			ocfDeviceType: 'x.com.st.d.sensor.motion', mnmn: 'SmartThingsCommunity', vid: '9f5d4cb5-ace7-3971-af7c-ceb695925add' )
     {
         //

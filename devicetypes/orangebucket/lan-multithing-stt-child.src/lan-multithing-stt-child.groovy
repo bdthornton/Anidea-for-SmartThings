@@ -7,8 +7,6 @@
  *
  * Lan MultiThing STT Child
  * ========================
- * Version:	20.12.23.00
- *
  * This device handler implements a child Speech Recognition (STT) device to work
  * with LAN MultiThing. The Speech Recognition capability only has an attribute so
  * could be used for generic text.
@@ -16,10 +14,13 @@
  * Please be aware that this file is created in the SmartThings Groovy IDE and it may
  * format differently when viewed outside that environment.
  */
+ 
+def ai_v = '21.02.15.00'
+def ai_r = true
 
 metadata
 {
-	definition (name: "LAN MultiThing STT Child", namespace: "orangebucket", author: "Graham Johnson")
+	definition (name: "LAN MultiThing STT Child" + ( ai_r ? '' : " ${ai_v}" ), namespace: "orangebucket", author: "Graham Johnson")
     {
 		capability "Sensor"
         capability "Speech Recognition" 

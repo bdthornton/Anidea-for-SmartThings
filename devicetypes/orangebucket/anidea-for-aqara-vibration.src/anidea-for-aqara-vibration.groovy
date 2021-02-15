@@ -7,16 +7,17 @@
  *
  * Anidea for Aqara Vibration
  * ==========================
- * Version:	 20.12.23.00
- *
  * This device handler is a reworking of the 'Xiaomi Aqara Vibration Sensor' DTH by
  * 'bspranger' that adapts it for the 'new' environment. It has been stripped of the 'tiles', 
  * custom attributes, most of its preferences, and much of the logging.
  */
  
+def ai_v = '21.02.15.00'
+def ai_r = true
+ 
 metadata
 {
-	definition ( name: 'Anidea for Aqara Vibration', namespace: 'orangebucket', author: 'Graham Johnson',
+	definition ( name: 'Anidea for Aqara Vibration' + ( ai_r ? '' : " ${ai_v}" ), namespace: 'orangebucket', author: 'Graham Johnson',
     			 ocfDeviceType: 'x.com.st.d.sensor.multifunction', mnmn: 'SmartThingsCommunity', vid: 'cd875136-2467-3502-9666-45238f35d179' )
 	{
 		// Vibration is reported as acceleration (for consistency with the 'new' app).

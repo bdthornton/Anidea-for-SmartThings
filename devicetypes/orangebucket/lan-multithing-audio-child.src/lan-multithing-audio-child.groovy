@@ -6,17 +6,18 @@
  * --------------------------------------------------------------------------------- *
  * Lan MultiThing Audio Child
  * ==========================
- * Version:	20.12.23.00
- *
  * This device handler implements a child audio device to work with LAN MultiThing.
  *
  * Please be aware that this file is created in the SmartThings Groovy IDE and it may
  * format differently when viewed outside that environment.
  */
 
+def ai_v = '21.02.15.00'
+def ai_r = true
+
 metadata
 {
-	definition (name: "LAN MultiThing Audio Child", namespace: "orangebucket", author: "Graham Johnson")
+	definition (name: "LAN MultiThing Audio Child" + ( ai_r ? '' : " ${ai_v}" ), namespace: "orangebucket", author: "Graham Johnson")
     {
 		capability "Actuator"
         capability "Speech Synthesis" 

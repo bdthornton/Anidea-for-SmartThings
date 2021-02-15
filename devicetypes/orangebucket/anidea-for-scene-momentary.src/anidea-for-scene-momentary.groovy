@@ -6,17 +6,18 @@
  * --------------------------------------------------------------------------------- *
  * Anidea for Scene Momentary
  * ==========================
- * Version:	 20.12.23.00
- *
  * This device handler implements a Momentary button that activates a scene via the
  * API, saving the need to assemble HTTPS POST requests in third party apps.
  */
+ 
+def ai_v = '21.02.15.00'
+def ai_r = true
 
 include 'asynchttp_v1'
 
 metadata
 {
-	definition( name: 'Anidea for Scene Momentary', namespace: 'orangebucket', author: 'Graham Johnson' )
+	definition( name: 'Anidea for Scene Momentary' + ( ai_r ? '' : " ${ai_v}" ), namespace: 'orangebucket', author: 'Graham Johnson' )
     {
     	//
         capability 'Momentary'
