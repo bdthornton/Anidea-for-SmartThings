@@ -7,8 +7,6 @@
  *
  * Anidea for Aqara Contact
  * ========================
- * Version:	 20.12.23.00
- *
  * This device handler is a reworking of the 'Xiaomi Aqara Door/Window Sensor' and 'Xiaomi Door/Window
  * Sensor' devices handlers by 'bspranger' that combines and adapt them for the 'new' environment. It has
  * been stripped of the 'tiles', custom attributes, all its preferences and most of the logging. Health 
@@ -19,10 +17,13 @@
  * fingerprints, the only real difference between the handlers was in the way that the same on/off event
  * from the device was being processed.
  */
+ 
+def ai_v = '21.02.15.00'
+def ai_r = true
 
 metadata
 {
-	definition( name: 'Anidea for Aqara Contact', namespace: 'orangebucket', author: 'Graham Johnson',
+	definition( name: 'Anidea for Aqara Contact' + ( ai_r ? '' : " ${ai_v}" ), namespace: 'orangebucket', author: 'Graham Johnson',
     		    mnmn: 'SmartThingsCommunity', vid: 'b2397b84-0187-3ed2-890e-2d743d07568e' )
 	{
         capability 'Contact Sensor'

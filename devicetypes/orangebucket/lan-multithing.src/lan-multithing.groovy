@@ -7,8 +7,6 @@
  *
  * LAN MultiThing
  * ==============
- * Version:	 20.07.12.00
- *
  * The LAN MultiThing is a device handler for a remote device on the local network
  * that implements a number of actuator and sensor capabilities, and can also
  * act as a bridge to other devices. No specific remote device implementation is 
@@ -29,9 +27,12 @@
  * format differently when viewed outside that environment.
  */
 
+def ai_v = '21.02.15.00'
+def ai_r = true
+
 metadata
 {
-	definition ( name: "LAN MultiThing", namespace: "orangebucket", author: "Graham Johnson",
+	definition ( name: "LAN MultiThing"  + ( ai_r ? '' : " ${ai_v}" ), namespace: "orangebucket", author: "Graham Johnson",
                  ocfDeviceType: 'oic.wk.d' )
     {
 		capability "Actuator"

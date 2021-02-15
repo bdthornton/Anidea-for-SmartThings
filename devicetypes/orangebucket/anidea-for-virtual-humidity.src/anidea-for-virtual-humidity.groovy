@@ -7,15 +7,16 @@
  *
  * Anidea for Virtual Humidity
  * ===========================
- * Version:	 20.12.23.00
- *
  * This handler implements a virtual Relative Humidity sensor, similar in structure
  * to Anidea for Virtual Temperature.
  */
- 
+
+def ai_v = '21.02.15.00'
+def ai_r = true
+
  metadata
  {
-    definition( name: 'Anidea for Virtual Humidity', namespace: 'orangebucket', author: 'Graham Johnson' )
+    definition( name: 'Anidea for Virtual Humidity'  + ( ai_r ? '' : " ${ai_v}" ), namespace: 'orangebucket', author: 'Graham Johnson' )
     {
         capability 'Relative Humidity Measurement'
         // The Switch Level capability has been (ab)used to provide a humidity control in the mobile app.

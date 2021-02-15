@@ -7,8 +7,6 @@
  *
  * Anidea for Security System Helper
  * =================================
- * Version:	 21.02.02.00
- *
  * This DTH implements a helper device to assist in setting and exposing the
  * location security system outside of the mobile apps, Automations and the Rules
  * API.  The arming and disarming side of things is handled using three child 
@@ -22,9 +20,12 @@
  * status from the security system status, requires external automations.
  */
 
+def ai_v = '21.02.15.00'
+def ai_r = true
+
 metadata
 {
-	definition( name: 'Anidea for Security System Helper', namespace: 'orangebucket', author: 'Graham Johnson', mcdSync: true,
+	definition( name: 'Anidea for Security System Helper' + ( ai_r ? '' : " ${ai_v}" ), namespace: 'orangebucket', author: 'Graham Johnson', mcdSync: true,
     			ocfDeviceType: 'oic.wk.d', mnmn: 'SmartThingsCommunity', vid: 'f32b4796-d5f6-35ce-ab7a-8a6f29f4ee4e' )
     {
         //

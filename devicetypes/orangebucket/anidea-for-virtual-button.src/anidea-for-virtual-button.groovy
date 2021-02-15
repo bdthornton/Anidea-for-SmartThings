@@ -6,15 +6,16 @@
  * --------------------------------------------------------------------------------- *
  * Anidea for Virtual Button
  * =========================
- * Version:	 20.12.23.00
- *
  * This device handler implements a simple virtual button using the Button and
  * Momentary capabilities.
  */
 
+def ai_v = '21.02.15.00'
+def ai_r = true
+
 metadata
 {
-	definition( name: 'Anidea for Virtual Button', namespace: 'orangebucket', author: 'Graham Johnson',
+	definition( name: 'Anidea for Virtual Button'  + ( ai_r ? '' : " ${ai_v}" ), namespace: 'orangebucket', author: 'Graham Johnson',
     			ocfDeviceType: 'x.com.st.d.remotecontroller', mnmn: 'SmartThingsCommunity', vid: '9dbc9d7d-4f08-3657-9650-68aef8bac423' )
     {
     	//

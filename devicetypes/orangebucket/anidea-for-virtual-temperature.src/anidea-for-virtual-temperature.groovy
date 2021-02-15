@@ -7,11 +7,12 @@
  *
  * Anidea for Virtual Temperature
  * ==============================
- * Version:	 20.12.23.00
- *
  * This handler basically implements the same functionality as the Simulated Temperature
  * Sensor but works with the new app.
  */
+ 
+ def ai_v = '21.02.15.00'
+ def ai_r = true
  
  metadata
  {
