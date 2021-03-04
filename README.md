@@ -28,4 +28,3 @@ The repository layout is compatible with the IDE for the 'classic' Device Handle
     - Anidea for HTTP Ping
     - Anidea for Scene Momentary
     - Anidea for Security System Helper
-    - LAN MultiThing
