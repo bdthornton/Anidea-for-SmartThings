@@ -95,27 +95,27 @@ and *Presentation Resource*. With the introduction of the CLI and Custom Capabil
 The *Presentation ID* appears in the DTH as e.g. `vid: 'generic-switch'` and works in combinationn with the `mnmn`. For community generated presentations the *VID* 
 (as it is often known) takes the form of a UUID and works alongside the manufacturer name `SmartThingsCommunity`.
 
-*As something of an aside, the VID Selector tool reveals that stock device handlers without an explicit VID still seem to have bespoke presentations with identifiers
+*As something of an aside, the VID Selector tool revealed that stock device handlers without an explicit VID still seemed to have bespoke presentations with identifiers
 built from the name (with spaces replaced with underscores), the namespace, and the mnmn in the combination mnmn-namespace-name, 
 e.g. `SmartThings-smartthings-Ikea_Button`.*
 
 ## Device Config and Device Presentation
-When a *Device Profile* is created in the Developer Workspace, it automatically creates a JSON file defining the UI based on the supplied device type, capabilities, 
+When a *Device Profile* was created in the Developer Workspace, it automatically created a JSON file defining the UI based on the supplied device type, capabilities, 
 the choice of tile status (default is the online / offline status) and tile action (default none). 
-This file, which can be replaced by a custom version, used to be called the *UI Manifest'* and was named using the developer or organisation ID and the vendor ID 
+This file, which could be replaced by a custom version, used to be called the *UI Manifest'* and was named using the developer or organisation ID and the vendor ID 
 e.g. `12AB_large-widget_ui.json`. A similar file referenced by the VID Selector tool was called a *Presentation Resource*.
 
-When the CLI tool was introduced the terms *Device Config* and *Device Presentation* appeared and the terms *Config* and *Presentation* are being retrofitted to the
-Device Profiles tool in the Developer Workspace to make things more consistent. 
+When the CLI tool was introduced the terms *Device Config* and *Device Presentation* appeared and the terms *Config* and *Presentation* have since been retrofitted to the
+Device Profiles tool in the Developer Workspace to make things more consistent. Presumably it is more than just terminology the way things have implemented have been updated too.
 
 The *Device Presentation* is a JSON file, that used to be typically around 100 kb in size,
 that defines the UI for the 'new' app, or indeed any other UI. It was the same thing as the *UI Manifest* or *Presentation Resource*, though those generated for
 DTHs didn't define the device icon. Sometime around the end of 2020 or early in 2021 things changed and the presentation that the API produced became a much smaller JSON file only featuring the requested language and being much more recognisable as the *Device Config* fleshed out with *Capability Presentations*.
 
-The *Device Config* is a much smaller JSON file that defines the user configurable parts of the *Device Presentation*. It defines which capabilities should
+The *Device Config* is a JSON file that defines the user configurable parts of the *Device Presentation*. It defines which capabilities should
 be used for the dashboard status, dashboard actions, the details view, automation conditions and automation actions. Each capability, standard or custom, has a
 *Capability Presentation* that defines how the capability should be presented in each of those places. The *Device Config* is fleshed out with the *Capability 
-Presentations* and multi-language support to create the *Device Presentation*.
+Presentations* and multi-language support to create the *Device Presentation*. As described above, this used to be a single file, but is now much more compact and seems like it may be dynamically generated for the required language (unless there are simply multiple copies of it). Where a stock presentation is using a custom icon, it now seems to be possible to extract the icon URL from the *Device Presentation* and use it in the *Device Config*.
 
 Each *Config* and *Presentation* includes the *Manufacturer Name* and *Presentation ID*, originally as `mnmn` and `vid` but from September 2020 also as `manufacturerName`
 and `presentationId`. In the API the values match, but local copies of the *Config* may have an older ID if they have been edited.
