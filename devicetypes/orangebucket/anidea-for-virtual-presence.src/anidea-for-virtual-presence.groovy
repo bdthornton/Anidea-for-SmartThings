@@ -7,15 +7,16 @@
  *
  * Anidea for Virtual Presence
  * ===========================
- * Version:	 21.02.04.00
- *
- * A virtual presence and occupancy sensor that handles the two capabilities separately. 
- * Custom commands use standard names where available.
+ * A virtual presence and occupancy sensor that can handle the two capabilities separately
+ * or link them together. Custom commands use standard names where available.
  */
+
+def ai_v = '21.05.11.00'
+def ai_r = true
 
 metadata 
 {
-    definition ( name: 'Anidea for Virtual Presence', namespace: 'orangebucket', author: 'Graham Johnson',
+    definition ( name: 'Anidea for Virtual Presence'  + ( ai_r ? '' : " ${ai_v}" ), namespace: 'orangebucket', author: 'Graham Johnson',
     			 mnmn: 'SmartThingsCommunity', vid: 'e62d46e4-450e-3166-9eb4-d0cb3d74b9d5' ) 
     {
     	// The DTH can work as both a Presence Sensor and an Occupancy Sensor.  The two
@@ -32,6 +33,11 @@ metadata
 
 		// Custom commands for setting occupancy.  No known standards to follow.
 		capability 'circlemusic21301.occupancyCommands'
+    }
+    
+    preferences
+    {
+    	input name: 'linksensors',   type: 'bool', title: 'Link Presence and Occupancy Sensors?',   description: 'Enter boolean', required: true
     }
 }
 
@@ -64,6 +70,7 @@ def logger( method, level = 'debug', message = '' )
         				break
 	}
 }
+
 // This should be redundant.
 def parse( description )
 {
@@ -75,12 +82,15 @@ def arrived()
     logger( 'arrived', 'info', '' )
     
     sendEvent( name: 'presence', value: 'present' )
+    
+    if ( linksensors ) sendEvent( name: 'occupancy', value: 'occupied' )
 }
-
 
 def departed() 
 {
     logger( 'departed', 'info', '' )
+    
+    if ( linksensors ) sendEvent( name: 'occupancy', value: 'not occupied' )
     
     sendEvent( name: 'presence', value: 'not present' )
 }
@@ -88,6 +98,8 @@ def departed()
 def occupied() 
 {
     logger( 'occupied', 'info', '' )
+    
+    if ( linksensors ) sendEvent( name: 'presence', value: 'present' )
     
     sendEvent( name: 'occupancy', value: 'occupied' )
 }
@@ -97,4 +109,6 @@ def unoccupied()
     logger( 'unoccupied', 'info', '' )
     
     sendEvent( name: 'occupancy', value: 'unoccupied' )
+    
+    if ( linksensors ) sendEvent( name: 'presence', value: 'not present' )
 }
