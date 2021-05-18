@@ -8,11 +8,11 @@
  * Anidea for Aqara Vibration
  * ==========================
  * This device handler is a reworking of the 'Xiaomi Aqara Vibration Sensor' DTH by
- * 'bspranger' that adapts it for the 'new' environment. It has been stripped of the 'tiles', 
+ * 'bspranger' that adapts it for the 'new' environment.  It has been stripped of the 'tiles', 
  * custom attributes, most of its preferences, and much of the logging.
  */
  
-def ai_v = '21.02.15.00'
+def ai_v = '21.03.05.00'
 def ai_r = true
  
 metadata
@@ -36,7 +36,7 @@ metadata
 		capability 'Health Check'
 		capability 'Sensor'
         
-        // Add custom capabilities for setting the contact sensor
+        // Add custom capabilities for setting the contact sensor.
         // positions, replacing custom commands.
         capability 'circlemusic21301.setClosed'
         capability 'circlemusic21301.setOpen'
@@ -45,10 +45,10 @@ metadata
         // as an integer. It has been converted to a custom capability using an integer.
         capability 'circlemusic21301.activityLevel'
 
+		// These probably need converting to custom capabilities.
 		attribute 'accelsensitivity', 'string'
 		attribute 'tiltangle', 'string'
-
-         
+    
 		command 'changesensitivity'
 
 		fingerprint endpointId: '01', profileId: '0104', deviceId: '000A', inClusters: '0000,0003,0019,0101', outClusters: '0000,0004,0003,0005,0019,0101', manufacturer: 'LUMI', model: 'lumi.vibration.aq1', deviceJoinName: 'Lumi Aqara Sensor'
@@ -84,11 +84,15 @@ def installed()
     sendEvent( name: 'threeAxis',     value: [ 0, 0, 0 ], 			 displayed: false )
     sendEvent( name: 'battery',		  value: 50,		  unit: '%', displayed: false )
     sendEvent( name: 'activitylevel', value: 0,					     displayed: false )
+    
+    // Set a default for sensitivity.
+    state.sensitivity = 0
+    changesensitivity()
 }
 
 // updated() seems to be called after installed() when the device is first installed, but not when
 // it is updated in the IDE without there having been any actual changes.  It runs whenever settings
-// are updated in the mobile app. It often used to be seen running twice in quick succession so was
+// are updated in the mobile app.  It often used to be seen running twice in quick succession so was
 // debounced in many handlers.
 def updated()
 {
@@ -112,7 +116,37 @@ def ping()
 	logger( 'ping', 'info', '' )
 }
 
-// Create map of values to be used for vibration, tilt, or drop event
+// Parse incoming device messages to generate events.
+def parse( String description )
+{
+	logger( 'parse', 'debug', description )
+    
+	def result = [:]
+
+	// Send message data to appropriate parsing function based on the type of report
+	if ( description?.startsWith( 'read attr - raw: ') )
+    {
+		result = readattr(description)
+	} 
+    else if ( description?.startsWith( 'catchall:' ) )
+    {
+		result = catchall(description)
+	}
+    
+	if ( result != [:] )
+    {
+		logger( 'parse', 'info', result )
+		return createEvent( result )
+	}
+    else
+    {
+		logger( 'parse', 'debug', 'Message not recognised.' )
+        
+		return [:]
+	}
+}
+
+// Create map of values to be used for vibration, tilt, or drop event.
 Map mapsensorevent( value )
 {
 	logger( 'mapsensorevent', 'info', value )
@@ -144,36 +178,6 @@ Map mapsensorevent( value )
     }
 
 	return [ name: eventname[value], value: eventtype[value], descriptionText: eventmessage[value] ]
-}
-
-// Parse incoming device messages to generate events
-def parse( String description )
-{
-	logger( 'parse', 'debug', description )
-    
-	def result = [:]
-
-	// Send message data to appropriate parsing function based on the type of report
-	if ( description?.startsWith( 'read attr - raw: ') )
-    {
-		result = readattr(description)
-	} 
-    else if ( description?.startsWith( 'catchall:' ) )
-    {
-		result = catchall(description)
-	}
-    
-	if ( result != [:] )
-    {
-		logger( 'parse', 'info', result )
-		return createEvent( result )
-	}
-    else
-    {
-		logger( 'parse', 'debug', 'Message not recognised.' )
-        
-		return [:]
-	}
 }
 
 // Check catchall for battery voltage data to pass to battery() for conversion to percentage report
@@ -327,7 +331,7 @@ def tiltangle( value )
 Map battery( raw )
 {
     // Experience shows that a new battery in an Aqara sensor reads about 3.2V, and they need
-	// changing when you get down to about 2.7V. It really isn't worth messing around with 
+	// changing when you get down to about 2.7V.  It really isn't worth messing around with 
 	// preferences to fine tune this.
 
 	def rawvolts = raw / 1000
@@ -415,11 +419,14 @@ def changesensitivity()
     
 	def attrvalue = [ 0,   0x15,  0x0B,    0x01   ]
 	def leveltext = [ '', 'Low', 'Medium', 'High' ]
-    
-	zigbee.writeAttribute(0x0000, 0xFF0D, 0x20, attrvalue[ state.sensitivity ], [ mfgCode: 0x115F ] )
-	zigbee.readAttribute( 0x0000, 0xFF0D, [ mfgCode: 0x115F ])
+
+	// Hopefully this is the correct format.  Rumour has it that reading the attribute doesn't work so as is isn't
+    // being processed anyway there is no point trying here.
+	sendHubCommand( zigbee.writeAttribute( 0x0000, 0xFF0D, 0x20, attrvalue[ state.sensitivity ], [ mfgCode: 0x115F ] ) )
 	
-    sendEvent(name: "accelsensitivity", value: levelText[ state.sensitivity ] )
+    sendEvent(name: "accelsensitivity", value: leveltext[ state.sensitivity ] )
     
-    logger( 'changesensitivity', 'debug', "${levelText[ state.sensitivity ]}" )
+    // This is deliberately written with the logger here to avoid returning the Zigbee commands - the method
+    // is not always used as a command method.
+    logger( 'changesensitivity', 'debug', "${leveltext[ state.sensitivity ]}" )
 }
