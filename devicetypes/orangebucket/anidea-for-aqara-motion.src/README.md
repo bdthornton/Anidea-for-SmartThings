@@ -7,3 +7,5 @@ This supports the same Aqara motion sensors as the original 'bspranger' handler,
 During April 2020, the author experienced a considerable number of issues with the motion not being reset, and all the indications were that the timer event simply wasn't being received. For this reason, `active()` and `inactive()` custom commands have been added, matching the names used in the Simulated Motion Sensor, to allow the attribute to be 'reset' to a known state. The `active()` command does not set the timer.
 
 At the end of August 2020, the author noticed that every single one of his Aqara motion sensors was showing 'Checking status' in the app. The fix seemed to be to add an explicit 'vid' to the DTH.
+
+**THE AUTHOR IS NO LONGER ACTIVELY USING THESE SENSORS.**
