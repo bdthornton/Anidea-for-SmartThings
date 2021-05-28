@@ -14,6 +14,6 @@ The changes apart from the above are:
 
 Observations:
 
-* The original DTH hasn't been written to allow for the installed() method to run more than once. It will try to create child devices again and return an error.
+* The original DTH wasn't written to allow for the `installed()` method to run more than once so it will try to create child devices again and return an error.
 * So far onboarding hasn't been as smooth as it could be, tending to silently onboard rather than putting up a tile and inviting a rename, though the testing was flawed. 
 
