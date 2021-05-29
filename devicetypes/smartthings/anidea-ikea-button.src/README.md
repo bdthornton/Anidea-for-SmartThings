@@ -16,4 +16,5 @@ Observations:
 
 * The original DTH wasn't written to allow for the `installed()` method to run more than once so it will try to create child devices again and return an error.
 * So far onboarding hasn't been as smooth as it could be, tending to silently onboard rather than putting up a tile and inviting a rename, though the testing was flawed. 
+* Something isn't quite right with the presentation. The dashboard is showing 'Checking ...' on Android. The presentation looked right to start with, and a lightly modified one looks just as right, but they don't seem to be working.
 
