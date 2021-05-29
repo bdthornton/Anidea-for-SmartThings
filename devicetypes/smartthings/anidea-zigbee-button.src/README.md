@@ -1,4 +1,4 @@
-**Anidea Zigbee Button** is a modification of the stock **Zigbee Button** DTH (as downloaded from the SmartThingsPublic Master branch on 28/5/21) 
+**Anidea for Zigbee Button** is a modification of the stock **Zigbee Button** DTH (as downloaded from the SmartThingsPublic Master branch on 28/5/21) 
 to support the *Sonoff SNZB-01* button, which identifies as the *eWeLink WB01*.
 
 The addition to the name is purely to avoid accidental confusion and conflict with the stock handler. For the same reason the device fingerprints that were already in the handler
