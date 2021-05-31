@@ -14,7 +14,7 @@ The changes apart from the above are:
 Observations:
 
 * The hold time setting is for other supported buttons that send button pressed and released events, not the *eWeLink WB01*.
-* So far onboarding hasn't been as smooth as it could be, tending to silently onboard rather than putting up a tile and inviting a rename. 
+* For some reason, when pairing the device using 'Scan Nearby' the button pairs silently and you are not offered the option to rename it.
 * The source handler had a number of Zigbee configuration commands. It isn't known if they have any bearing on the *eWeLink WB01*.
 * The *Zigbee Button* handler doesn't give the impression of having had all that much attention. Perhaps there was a better starting point?
 
