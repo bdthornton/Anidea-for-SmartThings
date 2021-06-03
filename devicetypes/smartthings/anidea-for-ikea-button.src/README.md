@@ -16,4 +16,4 @@ Observations:
 
 * The original DTH wasn't written to allow for the `installed()` method to run more than once so it will try to create child devices again and return an error.
 * The onboarding process works smoothly if you pair the button as an Ikea 'Button'. If you use 'Scan Nearby' it tends to pair silently and you don't get the chance to rename the button (but not always). No idea why that is.
-* The dashboard tile has a tendency to show either 'Checking ...' or nothing at all in the status, and the details page does not overwrite the default label for the button. This is despite the API showing the device has the correct presentation and the presentation showing the correct label.
+* The dashboard tile has a tendency to show either 'Checking ...' or nothing at all in the status, and the details page does not overwrite the default label for the button. This is despite the API showing the device has the correct presentation and the presentation showing the correct label. Also the details page does seem to respect the presentation in other respects.
