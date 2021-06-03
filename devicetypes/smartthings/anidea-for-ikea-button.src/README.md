@@ -15,5 +15,5 @@ The changes apart from the above are:
 Observations:
 
 * The original DTH wasn't written to allow for the `installed()` method to run more than once so it will try to create child devices again and return an error.
-* The onboarding process works smoothly if you pair the button as an Ikea 'Button'. If you use 'Scan Nearby' it seems to pair silently and you don't get the chance to rename the button. No idea why that is.
-* For some reason the Android app is showing 'Checking ...' on the dashboard tile and not changing the button label on the details view, though it is clearly not using a default presentation and the API shows the custom presentation is in use by the device. It isn't at all obvious why it is doing this. Other variations of the presentation have been tried and don't put any status on the dashboard at all.
+* The onboarding process works smoothly if you pair the button as an Ikea 'Button'. If you use 'Scan Nearby' it tends to pair silently and you don't get the chance to rename the button (but not always). No idea why that is.
+* The dashboard tile has a tendency to show either 'Checking ...' or nothing at all in the status, and the details page does not overwrite the default label for the button. This is despite the API showing the device has the correct presentation and the presentation showing the correct label.
