@@ -18,6 +18,7 @@ import groovy.json.JsonOutput
 import physicalgraph.zigbee.zcl.DataType
 
 metadata {
+	// Following line modifies 'name' to avoid confusion.
 	definition (name: "Anidea for Ikea Button", namespace: "smartthings", author: "SmartThings", ocfDeviceType: "x.com.st.d.remotecontroller", mcdSync: true) {
 		capability "Actuator"
 		capability "Battery"
