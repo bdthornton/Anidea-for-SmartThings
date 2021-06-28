@@ -72,4 +72,4 @@ The last group of DTHs probably aren't of any practical use to other users thoug
 
 - [Anidea for Security System Helper](anidea-for-security-system-helper.src)
 
-The same can also be said of the [Anidea for Security System Helper](anidea-for-security-system-helper.src) DTH. This is something being developed to assist with controlling STHM, if that is considered desirable. The standard trick of using three virtual switches and six Automations doesn't work for everyone for some reason, which isn't at all clear, and really seems to be asking for trouble anyway.
+The same can also be said of the [Anidea for Security System Helper](anidea-for-security-system-helper.src) DTH. This is something being developed to assist with controlling STHM, if that is considered desirable. The standard trick of using three virtual switches and six Automations never worked for everyone for some reason which wasn't clear, even and even before the switch to Rules based Automations meant the Virtual Switch DTH was no longer suitable it already seemed to be asking for trouble.
