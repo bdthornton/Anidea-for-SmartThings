@@ -12,7 +12,7 @@
 ## Anidea for Lumi Devices
 <img src="../../images/aqara_button.png?raw=true" width="100"><img src="../../images/aqara_contact.png?raw=true" width="100"><img src="../../images/aqara_motion.png?raw=true" width="100"><img src="../../images/aqara_temperature.png?raw=true" width="100"><img src="../../images/aqara_vibration.png?raw=true" width="100">
 
-**PLEASE BE AWARE THAT THE AUTHOR IS INTENT ON PHASING OUT MOST OF HIS LUMI SENSORS, WITH THE BUTTONS LIKELY TO SURVIVE THE LONGEST. THEY ARE SAID TO WORK VERY WELL WITH THEIR NATIVE GATEWAYS BUT THOSE GATEWAYS DO NOT HAVE AN OFFICIAL INTEGRATION WITH SMARTTHINGS. THE DIRECT INTEGRATION WITH THE SMARTTHINGS HUBS IS JUST MORE TROUBLE THAN IT IS WORTH, NOT BECAUSE OF STABILITY (WHICH IS MORE THAN ACCEPTABLE) AND FUNCTIONALITY (WHICH IS GOOD), BUT BECAUSE THEY CAN BE RIDICULOUSLY DIFFICULT TO GET TO PAIR IN THE FIRST PLACE AND BECAUSE OF THE LIMITS THEY IMPOSE ON CHOICE OF EQUIPMENT AND THE DYNAMIC CHANGES TO THE MESH.**
+**PLEASE BE AWARE THAT THE AUTHOR HAS NOW STOPPED USING AQARA SENSORS. THEY ARE SAID TO WORK VERY WELL WITH THEIR NATIVE GATEWAYS BUT THOSE GATEWAYS DO NOT HAVE AN OFFICIAL INTEGRATION WITH SMARTTHINGS. DIRECT INTEGRATION WITH THE SMARTTHINGS HUBS IS JUST MORE TROUBLE THAN IT IS WORTH, NOT BECAUSE OF STABILITY (WHICH IS MORE THAN ACCEPTABLE) AND FUNCTIONALITY (WHICH IS GOOD), BUT BECAUSE THEY CAN BE RIDICULOUSLY DIFFICULT TO GET TO PAIR IN THE FIRST PLACE AND BECAUSE OF THE LIMITS THEY IMPOSE ON CHOICE OF EQUIPMENT AND THE DYNAMIC CHANGES TO THE MESH.**
 
 - [Anidea for Aqara Button](anidea-for-aqara-button.src/)
 - [Anidea for Aqara Contact](anidea-for-aqara-contact.src/)
@@ -72,4 +72,4 @@ The last group of DTHs probably aren't of any practical use to other users thoug
 
 - [Anidea for Security System Helper](anidea-for-security-system-helper.src)
 
-The same can also be said of the [Anidea for Security System Helper](anidea-for-security-system-helper.src) DTH. This is something being developed to assist with controlling STHM, if that is considered desirable. The standard trick of using three virtual switches and six Automations doesn't work for everyone for some reason, which isn't at all clear, and really seems to be asking for trouble anyway.
+The same can also be said of the [Anidea for Security System Helper](anidea-for-security-system-helper.src) DTH. This is something being developed to assist with controlling STHM, if that is considered desirable. The standard trick of using three virtual switches and six Automations never worked for everyone for some reason which wasn't clear, even and even before the switch to Rules based Automations meant the Virtual Switch DTH was no longer suitable it already seemed to be asking for trouble.
