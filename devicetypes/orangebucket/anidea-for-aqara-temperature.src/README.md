@@ -9,3 +9,5 @@ The capability definition only includes the single unit 'kPa', with a range of 0
 *The units are displayed incorrectly in the Settings area of the app because the first letter is being folded to upper case, turning correct abbreviations such as 'hPa' into the nonsensical 'HPa'.*
 
 At the time of writing, the alpha release of the CLI tool has been used to create a custom device presentation so the temperature displays on the dashboard tile. Without it the humidity seems to display. It is assumed this works for other users.
+
+**THE AUTHOR NO LONGER USES THIS SENSOR.**
