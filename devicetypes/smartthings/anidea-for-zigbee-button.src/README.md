@@ -14,7 +14,7 @@ The changes apart from the above are:
 Observations:
 
 * The hold time setting is for other supported buttons that send button pressed and released events, not the *eWeLink WB01*.
-* For some reason, when pairing the device using 'Scan Nearby' the button pairs silently and you are not offered the option to rename it.
-* The source handler had a number of Zigbee configuration commands. It isn't known if they have any bearing on the *eWeLink WB01*.
+* When pairing the device using 'Scan Nearby' the button used to pair silently without offering the option to rename it, but more recent attempts have worked 'correctly'.
+* The source handler had a number of Zigbee configuration commands. It isn't known if they have any bearing on the *eWeLink WB01* but there is a suspicion that they may perhaps be required for correct battery reporting.
 * The *Zigbee Button* handler doesn't give the impression of having had all that much attention. Perhaps there was a better starting point?
 
