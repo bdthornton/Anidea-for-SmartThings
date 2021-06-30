@@ -13,7 +13,7 @@
  * no response is received within sixty seconds it is set to inactive.
  */
 
-def ai_v = '21.02.15.00'
+def ai_v = '21.06.30.00'
 def ai_r = true
 
 metadata
@@ -112,7 +112,14 @@ def setdni()
 
 def logger( method, level = 'debug', message = '' )
 {
-	log."${level}" "$device.displayName [$device.name] [${method}] ${message}"
+	// Using log."${level}" for dynamic method invocation is now deprecated.
+    switch( level )
+	{
+		case 'info':	log.info  "$device.displayName [$device.name] [${method}] ${message}"
+        				break
+        default:	    log.debug "$device.displayName [$device.name] [${method}] ${message}"
+        				break
+	}
 }
 
 
