@@ -18,8 +18,8 @@ import groovy.json.JsonOutput
 import physicalgraph.zigbee.zcl.DataType
 
 metadata {
-	// Following line modifies 'name' to avoid confusion.
-	definition (name: "Anidea for Ikea Button", namespace: "smartthings", author: "SmartThings", ocfDeviceType: "x.com.st.d.remotecontroller", mcdSync: true) {
+	// Following line modifies 'name' to avoid confusion. Add an 'mnmn' and 'vid' as fingerprint being ignore in favour of a default DTH.
+	definition (name: "Anidea for Ikea Button", namespace: "smartthings", author: "SmartThings", ocfDeviceType: "x.com.st.d.remotecontroller", mcdSync: true, mnmn: "SmartThingsCommunity", vid: "e26c463f-a0ad-3e0f-a7e8-8d8262910073") {
 		capability "Actuator"
 		capability "Battery"
 		capability "Button"
@@ -206,6 +206,8 @@ def installed() {
 	}
 
 	// if (numberOfButtons > 1) {
+    // Add check for existing child devices to avoid an error when devices is updated in the IDE.
+    if (!childDevices)
 		createChildButtonDevices(numberOfButtons)
 	// }
 
