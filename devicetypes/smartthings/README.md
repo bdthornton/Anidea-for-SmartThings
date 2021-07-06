@@ -8,5 +8,5 @@ The device type handlers in this folder are modification of stock handlers. The 
 The current handlers available are:
 
 * _Anidea for Ikea Button_ for the **IKEA Tradfri Wireless Shortcut Button**.
-* _Anidea for SmartSense Temperature & Humidity Sensor_ for the **Sonoff SNZB-02 Zigbee Temperature and Humidity Sensor** (which identifies as the **eWeLink TH01**).
+* _Anidea for SmartSense Temp/Humidity Sensor_ for the **Sonoff SNZB-02 Zigbee Temperature and Humidity Sensor** (which identifies as the **eWeLink TH01**).
 * _Anidea for Zigbee Button_ for the **Sonoff SNZB-01 Zigbee Wireless Switch** (which identifies as the **eWeLink WB01**).
