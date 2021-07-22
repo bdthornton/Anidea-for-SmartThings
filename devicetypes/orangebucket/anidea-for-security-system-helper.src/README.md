@@ -24,7 +24,7 @@ In order to set the _Security Mode_, there is still a need to create three _Auto
 
 Setting the device `sthmStatus` attribute from the _Security Mode_ can again be performed with three _Automations_, one for each mode. The action uses the helper device and the `deviceNotification` command appears as `Text Display`. The value of the `Text Display` should be set to `armedAway`, `armedStay`, or `disarmed`, as appropriate. _This was broken for a number of months but is working as of January 2021._
 
-An alternative to using _Automations_ is to use the _Rules API_. This can be used for both reading and setting the _Security Mode_. Suitable rules has been uploaded to the repository to [mirror the _Security Mode_ onto the `sthmStatus`](security_mirror_redacted_rule.yaml) and to [disarm the _Security Mode_ with the momentary](security_disarm_button_redacted_rule.yaml) (redacted to remove the device IDs).
+An alternative to using _Automations_ is to use the _Rules API_. This can be used for both reading and setting the _Security Mode_. Suitable rules have been uploaded to the repository to illustrate how to [mirror the _Security Mode_ onto the `sthmStatus`](security_mirror_redacted_rule.yaml) and how to [disarm the _Security Mode_ with the momentary](security_disarm_button_redacted_rule.yaml) (redacted to remove the device IDs).
 
 Legacy apps such as _webCoRE_ will see four devices for the helper. One will just show the device name/label and will include the `sthmStatus` attribute, and the other three with `Arm (Away)`, `Arm (Stay)` and `Disarm` appended to their labels will be the buttons and include the `push` command. _The `button` attributes and the `deviceNotification` command are accessible but are only meant to be used as above._
 
