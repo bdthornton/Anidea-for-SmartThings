@@ -1,5 +1,4 @@
-# 144bf55c-854f-4d9b-bf00-7268c465a16b
-name: '[R] Security: Mirror'
+name: 'Security Mirror'
 actions:
   - if:
       equals:
