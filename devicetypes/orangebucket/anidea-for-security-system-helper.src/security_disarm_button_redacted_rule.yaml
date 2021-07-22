@@ -1,0 +1,17 @@
+name: 'Security Disarm Button'
+actions:
+  - if:
+      equals:
+        left:
+          device:
+            devices:
+              - &security_system_helper {{UUID OF SECURITY SYSTEM HELPER DEVICE}
+            component: disarm
+            capability: button
+            attribute: button
+        right:
+          string: pushed
+      then:
+        - location:
+            security:
+              armState: Disarmed
