@@ -1,4 +1,5 @@
-name: Security Actions
+# 144bf55c-854f-4d9b-bf00-7268c465a16b
+name: '[R] Security: Mirror'
 actions:
   - if:
       equals:
@@ -10,7 +11,7 @@ actions:
       then:
         - command:
             devices:
-              - <UUID of Security System Helper>
+              - &helper {{UUID OF HELPER DEVICE}}
             commands:
               - component: main
                 capability: notification
@@ -27,7 +28,7 @@ actions:
       then:
         - command:
             devices:
-              - <UUID of Security System Helper>
+              - *helper
             commands:
               - component: main
                 capability: notification
@@ -44,11 +45,10 @@ actions:
       then:
         - command:
             devices:
-              - <UUID of Security System Helper>
+              - *helper
             commands:
               - component: main
                 capability: notification
                 command: deviceNotification
                 arguments:
                   - string: disarmed
-
