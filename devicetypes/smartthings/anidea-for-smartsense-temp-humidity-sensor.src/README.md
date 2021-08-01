@@ -1,5 +1,5 @@
 **Anidea for SmartSense Temp/Humidity Sensor** is a modification of the stock **SmartSense Temp/Humidity Sensor** DTH (as downloaded from the SmartThingsPublic Master branch on 28/5/21) 
-to support the *Sonoff SNZB-02* sensor, which identifies as the *eWeLink TH01*. **The stock handler has now been modified in a similar fashion and should go into production in August 2021. This doesn't correct the missing units on the battery event or the temperature description.**
+to support the *Sonoff SNZB-02* sensor, which identifies as the *eWeLink TH01*. **The stock handler has now been modified in a similar fashion and went into production at the end of July 2021. It doesn't correct the missing units on the battery event or the temperature description but it does give local execution.**
 
 The addition to the name is purely to avoid accidental confusion and conflict with the stock handler. For the same reason the device fingerprints that were already in the
 handler have been commented out.
