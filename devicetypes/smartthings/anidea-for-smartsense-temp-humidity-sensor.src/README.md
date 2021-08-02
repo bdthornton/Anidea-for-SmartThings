@@ -1,4 +1,4 @@
-**Anidea for SmartSense Temp/Humidity Sensor** was modification of the stock **SmartSense Temp/Humidity Sensor** DTH (as downloaded from the SmartThingsPublic Master
+The original version of **Anidea for SmartSense Temp/Humidity Sensor** was a modification of the stock **SmartSense Temp/Humidity Sensor** DTH (as downloaded from the SmartThingsPublic Master
 branch on 28/5/21) to support the *Sonoff SNZB-02* sensor, which identifies as the *eWeLink TH01*. The addition to the name was purely to avoid accidental confusion and conflict with the stock handler. For the same reason the device fingerprints that were already in the handler were commented out.
 
 The changes apart from the above were:
@@ -20,5 +20,4 @@ Ignoring the largely cosmetic logging mistakes, there is a glaring problem in th
 device to a minimum of one hour and a maximum of two hours, yet the checkInterval remains at twelve minutes for the default thirty second to five minute range of the other
 devices. That means the device is frequently being reported as offline.
 
-Tests are underway with a minimally modified custom handler that just changes the `configure()` method to set the temperature reporting to something sensible and leaves
-everything else as is in the hope of retaining correct local execution. This would have to be manually added.
+A minimally modified custom handler that just changes the `configure()` method to set the temperature reporting to something sensible has been tested but it seems like the `configure()` method being used may also be the local one and a cloud based handler may be needed instead.
