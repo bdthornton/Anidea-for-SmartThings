@@ -17,5 +17,5 @@ The stock  **SmartSense Temp/Humidity Sensor** DTH was modified for the *eweLink
 **Anidea for SmartSense Temp/Humidity Sensor** was withdrawn from the repository. 
 
 Ignoring the largely cosmetic logging mistakes, there is a glaring problem in that the modified stock handler sets the temperature reporting interval for the
-device to a minimum of one hour (!) and a maximum of two hours, yet the checkInterval remains at twelve minutes for the default thirty second to five minute range of the other
+device to a minimum of one hour (!) and a maximum of two hours, yet the `checkInterval` remains at twelve minutes for the default thirty second to five minute range of the other
 devices. That means the device is frequently being reported as offline, not to mention the temperature only updating every two hours. It urgently needs work.
