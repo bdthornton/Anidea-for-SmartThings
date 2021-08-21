@@ -4,11 +4,11 @@
 # Anidea for Virtual Binary
 This handler implements a multiple attribute binary state device comprised of a custom Binary Sensor capability, a Switch, and a number of binary state stock capabilities which can be individually enabled. The intention is for the attributes to be linked so that if one is active or inactive, all the other enabled capabilities are also active or inactive. There is, however, a device preference that can be left false to allow the attributes to all function independently. This is not supported in the app UI.
 
-The supported capabilities, which with the exception of Switch are all disabled by default and should be enabled as required using the device settings, are:
+The supported capabilities, which with the exception of the custom Binary Sensor and Switch are all disabled by default and should be enabled as required using the device settings, are:
 
 |CAPABILITY|ATTRIBUTE|ACTIVE STATE|COMMAND|INACTIVE STATE|COMMAND|
 |----------|---------|--------------|----------------|--------------|----------------|
-|Binary Sensor (Custom)|binarysensor|active|binaryactive()|inactive|binaryinactive|
+|Binary Sensor (Custom)|binarysensor|active|binaryactive()|inactive|binaryinactive()|
 |Contact Sensor|contact|open|open()|closed|close()|
 |Motion Sensor|motion|active|active()|inactive|inactive()|
 |Occupancy Sensor|occupancy|occupied|occupied()|unoccupied|unoccupied()|
