@@ -7,16 +7,17 @@
  *
  * Anidea for Virtual Binary
  * =========================
- * This device handler implements a virtual binary state device.
+ * This device handler implements a virtual binary state device with the option of
+ * independent attribute control or all attributes linked.
  */
  
- def ai_v = '21.02.15.00'
- def ai_r = true
+def ai_v = "21.08.21.01"
+def ai_r = true
 
 metadata
 {
-	definition( name: 'Anidea for Virtual Binary' + ( ai_r ? '' : " ${ai_v}" ), namespace: 'orangebucket', author: 'Graham Johnson', 
-                ocfDeviceType: 'oic.wk.d', mnmn: 'SmartThingsCommunity', vid: 'a0ee1553-d009-3d3d-a0f8-3b2c40391415' )
+	definition( name: 'Anidea for Virtual Binary' + ( ai_r ? '' : " ${ai_v}" ), namespace: 'orangebucket', author: 'Graham Johnson',
+    			ocfDeviceType: 'oic.wk.d', mnmn: 'SmartThingsCommunity', vid: 'a72d78a6-2c3b-3b42-9970-fa67a4c3750d' )
     {
         capability 'Contact Sensor'
         capability 'Motion Sensor'
@@ -29,21 +30,30 @@ metadata
         //
         capability 'Actuator'
 		capability 'Sensor'
-     
-     	capability 'circlemusic21301.contactCommands'
+
+		// Add a 'binary' attribute with values 'active' and 'inactive'
+        // and setter commands 'binaryactive' and 'binaryinactive'.
+     	capability 'circlemusic21301.binarySensor'
+
+		// Add basic commands to set sensors using custom capabilities.
+        capability 'circlemusic21301.contactCommands'
         capability 'circlemusic21301.motionCommands'
         capability 'circlemusic21301.occupancyCommands'
         capability 'circlemusic21301.presenceCommands'
         capability 'circlemusic21301.waterCommands'
+        
+        // Add an attribute to report currently enabled sensors.
+        capability 'circlemusic21301.selectedSensors'
 	}
 
 	preferences
     {
+        input name: 'linkedsensors',   	type: 'bool', title: 'Link Sensors?',   				 description: 'Enter boolean', required: true
+
         input name: 'virtualcontact',   type: 'bool', title: 'Act as virtual Contact Sensor?',   description: 'Enter boolean', required: true
         input name: 'virtualmotion',    type: 'bool', title: 'Act as virtual Motion Sensor?',    description: 'Enter boolean', required: true
         input name: 'virtualoccupancy', type: 'bool', title: 'Act as virtual Occupancy Sensor?', description: 'Enter boolean', required: true
         input name: 'virtualpresence',  type: 'bool', title: 'Act as virtual Presence Sensor?',  description: 'Enter boolean', required: true
-     // input name: 'virtualswitch',    type: 'bool', title: 'Act as virtual Switch?',           description: 'Enter boolean', required: true
         input name: 'virtualwater',     type: 'bool', title: 'Act as virtual Water Sensor?',     description: 'Enter boolean', required: true
 	}
 }
@@ -57,12 +67,15 @@ def installed()
     // device that will appear online when the hub is up.
 	sendEvent( name: 'DeviceWatch-Enroll', value: [protocol: 'cloud', scheme:'untracked'].encodeAsJson(), displayed: false )
     
-    sendEvent( name: 'contact',   value: 'closed',      displayed: false )
-    sendEvent( name: 'motion',    value: 'inactive',    displayed: false )
-    sendEvent( name: 'occupancy', value: 'unoccupied',  displayed: false )
-    sendEvent( name: 'presence',  value: 'not present', displayed: false )
-    sendEvent( name: 'switch',    value: 'off',         displayed: false )
-    sendEvent( name: 'water',	  value: 'dry',			displayed: false )
+    sendEvent( name: 'binary', 	  value: 'inactive', 	 displayed: false )
+    sendEvent( name: 'contact',   value: 'closed',       displayed: false )
+    sendEvent( name: 'motion',    value: 'inactive',     displayed: false )
+    sendEvent( name: 'occupancy', value: 'unoccupied',   displayed: false )
+    sendEvent( name: 'presence',  value: 'not present',  displayed: false )
+    sendEvent( name: 'switch',    value: 'off',          displayed: false )
+    sendEvent( name: 'water',	  value: 'dry',			 displayed: false )
+    
+    sendEvent( name: 'selectedSensors', value: 'Switch', displayed: false )
 }
 
 // updated() seems to be called after installed() when the device is first installed, but not when
@@ -73,12 +86,23 @@ def updated()
 {
 	logger( 'updated', 'info', '' )
 
+	def selectedsensors = 'Switch'
+    
+    logger( 'updated', 'debug', 'Linking of all sensors '   + ( linkedsensors    ? 'enabled' : 'disabled' ) )
+    
     logger( 'updated', 'debug', 'Virtual Contact Sensor '   + ( virtualcontact   ? 'enabled' : 'disabled' ) )
     logger( 'updated', 'debug', 'Virtual Motion Sensor '    + ( virtualmotion    ? 'enabled' : 'disabled' ) )
     logger( 'updated', 'debug', 'Virtual Occupancy Sensor ' + ( virtualoccupancy ? 'enabled' : 'disabled' ) )
     logger( 'updated', 'debug', 'Virtual Presence Sensor '  + ( virtualpresence  ? 'enabled' : 'disabled' ) )
- // logger( 'updated', 'debug', 'Virtual Switch '           + ( virtualswitch    ? 'enabled' : 'disabled' ) )
     logger( 'updated', 'debug', 'Virtual Water Sensor '     + ( virtualwater     ? 'enabled' : 'disabled' ) )
+    
+    selectedsensors += virtualcontact   ? ' Contact'   : ''
+    selectedsensors += virtualmotion    ? ' Motion'    : ''
+    selectedsensors += virtualoccupancy ? ' Occupancy' : ''
+    selectedsensors += virtualpresence  ? ' Presence'  : ''
+    selectedsensors += virtualwater     ? ' Water'     : ''
+    
+    sendEvent( name: 'selectedSensors', value: selectedsensors )
 }
 
 def logger( method, level = 'debug', message = '' )
@@ -97,14 +121,14 @@ def on()
 {
 	logger( 'on', 'info', '' )
     
-    binaryactive()
+    linkedsensors ? binaryactive() : sendEvent( name: 'switch', value: 'on' )
 }
 
 def off()
 {
 	logger( 'off', 'info', '' )
     
-    binaryinactive()
+    linkedsensors ? binaryinactive() : sendEvent( name: 'switch', value: 'off' )
 }
 
 // parse() is called when the hub receives a message from a device.
@@ -119,95 +143,98 @@ def binaryactive()
 {
 	logger( 'binaryactive', 'info', '' )
     
+    sendEvent( name: 'binary', value: 'active' )
+    
     // Change attributes to the active state.
-    if ( virtualcontact   ) sendEvent( name: 'contact',   value: 'open'     )
-    if ( virtualmotion    ) sendEvent( name: 'motion',    value: 'active'   )
-    if ( virtualoccupancy ) sendEvent( name: 'occupancy', value: 'occupied' )
-    if ( virtualpresence  ) sendEvent( name: 'presence',  value: 'present'  )
- // if ( virtualswitch    ) 
-    						sendEvent( name: 'switch',    value: 'on'       )
-    if ( virtualwater     ) sendEvent( name: 'water',     value: 'wet'      )
+    if ( linkedsensors && virtualcontact   ) sendEvent( name: 'contact',   value: 'open'     )
+    if ( linkedsensors && virtualmotion    ) sendEvent( name: 'motion',    value: 'active'   )
+    if ( linkedsensors && virtualoccupancy ) sendEvent( name: 'occupancy', value: 'occupied' )
+    if ( linkedsensors && virtualpresence  ) sendEvent( name: 'presence',  value: 'present'  )
+    if ( linkedsensors                     ) sendEvent( name: 'switch',    value: 'on'       )
+    if ( linkedsensors && virtualwater     ) sendEvent( name: 'water',     value: 'wet'      )
 }
 
 def binaryinactive()
 {
 	logger( 'binaryinactive', 'info', '' )
+    
+    sendEvent( name: 'binary', value: 'inactive' )
+    
 	// Return attributes to inactive state.
-	if ( virtualcontact   ) sendEvent( name: 'contact',   value: 'closed'      )
-    if ( virtualmotion    ) sendEvent( name: 'motion',    value: 'inactive'    )
-    if ( virtualoccupancy ) sendEvent( name: 'occupancy', value: 'unoccupied'  )
-    if ( virtualpresence  ) sendEvent( name: 'presence',  value: 'not present' )
- // if ( virtualswitch    ) 
- 							sendEvent( name: 'switch',    value: 'off'         )
-    if ( virtualwater     ) sendEvent( name: 'water',     value: 'dry'         )
+	if ( linkedsensors && virtualcontact   ) sendEvent( name: 'contact',   value: 'closed'      )
+    if ( linkedsensors && virtualmotion    ) sendEvent( name: 'motion',    value: 'inactive'    )
+    if ( linkedsensors && virtualoccupancy ) sendEvent( name: 'occupancy', value: 'unoccupied'  )
+    if ( linkedsensors && virtualpresence  ) sendEvent( name: 'presence',  value: 'not present' )
+    if ( linkedsensors   			       ) sendEvent( name: 'switch',    value: 'off'         )
+    if ( linkedsensors && virtualwater     ) sendEvent( name: 'water',     value: 'dry'         )
 }
 
 def open()
 {
 	logger( 'open', 'info', '' )
     
-    binaryactive()
+    linkedsensors ? binaryactive() : sendEvent( name: 'contact', value: 'open' )
 }
 
 def close()
 {
 	logger( 'close', 'info', '' )
     
-    binaryinactive()
+    linkedsensors ? binaryinactive() : sendEvent( name: 'contact', value: 'closed' )
 }
 
 def active()
 {
 	logger( 'active', 'info', '' )
     
-    binaryactive()
+    linkedsensors ? binaryactive() : sendEvent( name: 'motion', value: 'active' )
 }
 
 def inactive()
 {
 	logger( 'inactive', 'info', '' )
     
-    binaryinactive()
+    linkedsensors ? binaryinactive() : sendEvent( name: 'motion', value: 'inactive' )
 }
 
 def occupied()
 {
 	logger( 'occupied', 'info', '' )
     
-    binaryactive()
+    linkedsensors ? binaryactive() : sendEvent( name: 'occupancy', value: 'occupied' )
 }
 
 def unoccupied()
 {
 	logger( 'unoccupied', 'info', '' )
     
-    binaryinactive()
+    linkedsensors ? binaryinactive() : sendEvent( name: 'occupancy', value: 'unoccupied' )
 }
 
 def arrived()
 {
 	logger( 'arrived', 'info', '' )
     
-    binaryactive()
+    linkedsensors ? binaryactive() : sendEvent( name: 'presence', value: 'present' )
 }
 
 def departed()
 {
 	logger( 'departed', 'info', '' )
     
-    binaryinactive()
+    linkedsensors ? binaryinactive() : sendEvent( name: 'presence', value: 'not present' )
 }
 
 def wet()
 {
 	logger( 'wet', 'info', '' )
     
-    binaryactive()
+    linkedsensors ? binaryactive() : sendEvent( name: 'water', value: 'wet' )
 }
 
 def dry()
 {
 	logger( 'dry', 'info', '' )
     
-    binaryinactive()
+    linkedsensors ? binaryinactive() : sendEvent( name: 'water', value: 'dry' )
 }
