@@ -70,7 +70,7 @@ A post on Facebook mentioned that the Simulated Temperature Sensor didn't work w
 
 - [Anidea for HTTP Ping](anidea-for-http-ping.src)
 - Anidea for Scene Momentary (REMOVED)
-- 
+ 
 The last group of DTHs probably aren't of any practical use to other users though there might be something in the code that is of interest. [Anidea for HTTP Ping](anidea-for-http-ping.src) was written to detect a TV being switched on as active motion, back when Smart Lighting appeared to behave sensibly with multiple motion sensors but probably didn't and just wasn't being tested properly. Anidea for Scene Momentary was a momentary button that activated a scene, which could have been useful in ActionTiles pending the arrival of the official integration (which is now live), though it was also easy to use a bit of JavaScript in a URL Shortcut or a virtual switch with a trivial automation. It has been removed as it was a bit too pointless.
 
 - [Anidea for Security System Helper](anidea-for-security-system-helper.src)
