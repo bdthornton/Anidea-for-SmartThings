@@ -22,9 +22,9 @@ The repository layout is compatible with the IDE for the 'classic' Device Handle
     - Anidea for Virtual Button
     - Anidea for Virtual Humidity
     - Anidea for Virtual Momentary
-    - Anidea for Virtual Presence
+    - Anidea for Virtual Presence (REMOVED)
     - Anidea for Virtual Temperature
   - [Anidea for Odds and Sods](devicetypes/orangebucket/README.md#anidea-for-odds-and-sods)
     - Anidea for HTTP Ping
-    - Anidea for Scene Momentary
+    - Anidea for Scene Momentary (REMOVED)
     - Anidea for Security System Helper
