@@ -1,3 +1,5 @@
+**Please note that the author has long since given up trying to get the mobile app to respect the presentation in this handler, and indeed has switched to an Edge Driver by 'iquix' until such time as a stock driver becomes available.**
+
 **Anidea for Ikea Button** is a modification of the stock **Ikea Button** DTH (as downloaded from the SmartThingsPublic Master branch on 27/5/21) 
 to support the *IKEA Tradfri Shortcut Button*.
 
