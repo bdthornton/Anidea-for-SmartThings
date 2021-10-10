@@ -11,16 +11,16 @@ definition( name: 'Device Name', namespace: 'GitHub Username', author: 'Real Nam
     			  ocfDeviceType: 'x.com.st.d.doorbell', mnmn: 'SmartThingsCommunity', vid: '12345678-1234-1234-1234-f123456789012' )
 ```
 
-When creating an integration for a hub connected device using an *Edge Driver* you define a *profile* for the device in the driver. Although it seems to do broadly the same job
-as the *Device Profile* mentioned earlier, it seems to differ in detail. For example, the CLI can retrieve either sort of profile from the deviceprofiles endpoint of the API
-using its UUID, but only the new form is recognised. Conversely when generating a sample *Device Config* from a profile (rather than a DTH), it is only the older form that
-can be used.
+When creating an integration for a hub connected device using an *Edge Driver* you define a *Profile* for the device in the driver. Although it seems to do broadly the same job
+as the *Device Profile* mentioned earlier, it seems to differ in detail. For example, the CLI can retrieve either sort of profile from the *deviceprofiles* endpoint of the API
+using its UUID, but only the new form is recognised. Conversely when generating a sample *Device Config* from a profile (`smartthings presentation:device-config:generate`),
+it is only the older form that can be used.
 
 It seems that the intention is for the device type to be indicated using a *Category*, or indeed more than one. A category is a PascalCase name such as
 `DoorBell`. The mobile app is able to use the icon indicated by the category when a device is installed but then drops it. The workaround is to add an `ocfDeviceType` to the
 `metadata` in the profile file, just as with the DTH.
 
-The following list of device types was extracted from the *Developer Workspace* on 9th October 2021. It is believed that the PascalCase form required for categories can be
+The following list of device types was extracted from the *Developer Workspace* on **9th October 2021**. It is believed that the PascalCase form required for categories can be
 created by removing the spaces from the names in the first column, though it isn't guaranteed.
 
 Device Type|ocfDeviceType
