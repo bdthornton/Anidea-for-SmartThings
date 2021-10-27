@@ -12,9 +12,9 @@
 ## Anidea for Lumi Devices
 <img src="../../images/aqara_button.png?raw=true" width="100"><img src="../../images/aqara_contact.png?raw=true" width="100"><img src="../../images/aqara_motion.png?raw=true" width="100"><img src="../../images/aqara_temperature.png?raw=true" width="100"><img src="../../images/aqara_vibration.png?raw=true" width="100">
 
-**PLEASE BE AWARE THAT THE AUTHOR HAS NOW STOPPED USING AQARA SENSORS. THEY ARE SAID TO WORK VERY WELL WITH THEIR NATIVE GATEWAYS BUT THOSE GATEWAYS DO NOT HAVE AN OFFICIAL INTEGRATION WITH SMARTTHINGS. DIRECT INTEGRATION WITH THE SMARTTHINGS HUBS IS JUST MORE TROUBLE THAN IT IS WORTH, NOT BECAUSE OF STABILITY (WHICH IS MORE THAN ACCEPTABLE) AND FUNCTIONALITY (WHICH IS GOOD), BUT BECAUSE THEY CAN BE RIDICULOUSLY DIFFICULT TO GET TO PAIR IN THE FIRST PLACE AND BECAUSE OF THE LIMITS THEY IMPOSE ON CHOICE OF EQUIPMENT AND THE DYNAMIC CHANGES TO THE MESH.**
+** I have now stopped using Aqara sensors. They are said to work very well with their native gateways but those gateways do not have an official integration with Smartthings. I eventually decided that the direct hub integration with the SmartThings hubs was just more trouble that it is was worth. It was nothing to do with stability (the devices are very stable, or the functionality (which is very good), but simply because they can be ridiculously dificult to get to pair and they are very fussy about the routers they work with which severely limits what else can be on the mesh with them. They also don't seem terribly keen on the dynamic nature of the mesh.**
 
-**SMARTTHINGS RELEASED DETAILS OF 'SMARTTHINGS EDGE' IN AUGUST 2021. THIS IS THE REPLACEMENT FOR GROOVY DEVICE TYPE HANDLERS. ANTICIPATING THE QUESTION AS TO WHETHER THE AUTHOR WILL BE REIMPLEMENTING THESE HANDLERS AS EDGE DRIVERS, THE ANSWER IS NO, DUE TO A LACK OF THE REQUISITE KNOWLEDGE AND RESOURCES TO DO SO.**
+**SmartThings are replacing Groovy Device Type Handlers with Edge Drivers and they entered beta in August 2021. I have no intention of reimplementing these handlers in Edge Drivers due to a lack of knowledge, resources and indeed enthusiasm. Fortunately it does appear that other community developers have taken on the task of creating integrations for Aqara devices going forward/**
 
 - [Anidea for Aqara Button](anidea-for-aqara-button.src/)
 - [Anidea for Aqara Contact](anidea-for-aqara-contact.src/)
@@ -47,21 +47,7 @@ The common changes made to all the handlers include:
 ---
 ## Anidea for Virtual Devices
 
-**WITH THE INTRODUCTION OF 'SMARTTHINGS EDGE' 
-AS THE NEW SOLUTION FOR HUB CONNECTED DEVICES 
-TO REPLACE GROOVY DTHS, THE QUESTION IS LIKELY
-TO BE ASKED AS TO WHETHER IT IS INTENDED TO
-IMPLEMENT THESE DTHS IN AN EDGE DRIVER. 
-AT THE MOMENT THE ANSWER IS LOOKING LIKE A FIRM
-NO. THE AUTHOR HAS ALREADY SWITCHED TO COMMUNITY
-EDGE DRIVERS FOR HIS OWN USE, BUT THESE ARE PROBABLY
-A STOP GAP AS IT MAKES NO MORE SENSE TO HAVE LOCAL
-ONLY VIRTUAL DEVICES THAN CLOUD ONLY SO A BETTER
-SOLUTION IS REQUIRED. SMARTTHINGS
- HAVE ALSO NOTED THAT VIRTUAL DEVICES ARE
- BEING USED IN WAYS THAT DON'T REALLY 
-REQUIRE THE DEVICE PARADIGM AT ALL AND SEEM INTENT
-ON ADDRESSING THIS.**
+**I have no real intention of reimplementing these DTHs as Edge Drivers. I am already using community written Edge Drivers for most of my own requirements, and am also aware that Edge Drivers can never be the complete answer going forwards as they don't allow for cloud execution. SmartThings are very aware that much of the use of virtual devices doesn't really require the device paradigm at all and seem intent on providing more appropriate solutions, as well as their own virtual devices. So I am happy to bide my time.**
 
 - [Anidea for Virtual Binary](anidea-for-virtual-binary.src)
 - [Anidea for Virtual Button](anidea-for-virtual-button.src)
