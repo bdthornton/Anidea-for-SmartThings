@@ -14,7 +14,7 @@
 
 **I have now stopped using Aqara sensors. They are said to work very well with their native gateways but those gateways do not have an official integration with Smartthings. I eventually decided that the direct hub integration with the SmartThings hubs was just more trouble that it is was worth. It was nothing to do with stability (the devices are very stable, or the functionality (which is very good), but simply because they can be ridiculously dificult to get to pair and they are very fussy about the routers they work with which severely limits what else can be on the mesh with them. They also don't seem terribly keen on the dynamic nature of the mesh.**
 
-**SmartThings are replacing Groovy Device Type Handlers with Edge Drivers and they entered beta in August 2021. I have no intention of reimplementing these handlers in Edge Drivers due to a lack of knowledge, resources and indeed enthusiasm. Fortunately it does appear that other community developers have taken on the task of creating integrations for Aqara devices going forward/**
+**SmartThings are replacing Groovy Device Type Handlers with Edge Drivers and they entered beta in August 2021. I have no intention of reimplementing these handlers in Edge Drivers due to a lack of knowledge, resources and indeed enthusiasm. Fortunately it does appear that other community developers who have persisted with the devices have taken on the task of creating integrations for Aqara devices going forward.**
 
 - [Anidea for Aqara Button](anidea-for-aqara-button.src/)
 - [Anidea for Aqara Contact](anidea-for-aqara-contact.src/)
