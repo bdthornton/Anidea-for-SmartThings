@@ -12,9 +12,9 @@
 ## Anidea for Lumi Devices
 <img src="../../images/aqara_button.png?raw=true" width="100"><img src="../../images/aqara_contact.png?raw=true" width="100"><img src="../../images/aqara_motion.png?raw=true" width="100"><img src="../../images/aqara_temperature.png?raw=true" width="100"><img src="../../images/aqara_vibration.png?raw=true" width="100">
 
-**PLEASE BE AWARE THAT THE AUTHOR HAS NOW STOPPED USING AQARA SENSORS. THEY ARE SAID TO WORK VERY WELL WITH THEIR NATIVE GATEWAYS BUT THOSE GATEWAYS DO NOT HAVE AN OFFICIAL INTEGRATION WITH SMARTTHINGS. DIRECT INTEGRATION WITH THE SMARTTHINGS HUBS IS JUST MORE TROUBLE THAN IT IS WORTH, NOT BECAUSE OF STABILITY (WHICH IS MORE THAN ACCEPTABLE) AND FUNCTIONALITY (WHICH IS GOOD), BUT BECAUSE THEY CAN BE RIDICULOUSLY DIFFICULT TO GET TO PAIR IN THE FIRST PLACE AND BECAUSE OF THE LIMITS THEY IMPOSE ON CHOICE OF EQUIPMENT AND THE DYNAMIC CHANGES TO THE MESH.**
+**I have now stopped using Aqara sensors. They are said to work very well with their native gateways but those gateways do not have an official integration with Smartthings. I eventually decided that the direct hub integration with the SmartThings hubs was just more trouble that it is was worth. It was nothing to do with stability (the devices are very stable, or the functionality (which is very good), but simply because they can be ridiculously dificult to get to pair and they are very fussy about the routers they work with which severely limits what else can be on the mesh with them. They also don't seem terribly keen on the dynamic nature of the mesh.**
 
-**SMARTTHINGS RELEASED DETAILS OF 'SMARTTHINGS EDGE' IN AUGUST 2021. THIS IS THE REPLACEMENT FOR GROOVY DEVICE TYPE HANDLERS. ANTICIPATING THE QUESTION AS TO WHETHER THE AUTHOR WILL BE REIMPLEMENTING THESE HANDLERS AS EDGE DRIVERS, THE ANSWER IS NO, DUE TO A LACK OF THE REQUISITE KNOWLEDGE AND RESOURCES TO DO SO.**
+**SmartThings are replacing Groovy Device Type Handlers with Edge Drivers and they entered beta in August 2021. I have no intention of reimplementing these handlers in Edge Drivers due to a lack of knowledge, resources and indeed enthusiasm. Fortunately it does appear that other community developers who have persisted with the devices have taken on the task of creating integrations for Aqara devices going forward.**
 
 - [Anidea for Aqara Button](anidea-for-aqara-button.src/)
 - [Anidea for Aqara Contact](anidea-for-aqara-contact.src/)
@@ -27,7 +27,7 @@ The ['bspranger' device handlers](https://github.com/bspranger/Xiaomi) are the r
 
 The sensors use Zigbee in a rather non-standard way and so they need special handling. SmartThings recognise their popularity enough to make some allowances for them, but neither they nor Lumi have created 'official' handlers. Although they are very effective, the handlers are not without issues, and in particular they are very much rooted in the Classic environment and some of the the Health Check support isn't quite right. There are other things about them which are more about personal taste: the logging might be considered a bit excessive and untidy; there are several custom attributes that don't really add anything; and most of the settings are pretty much superfluous (for example, why have a UK / US date format setting when log messages are already timestamped?). 
 
-The 'Anidea for ...' handlers strip things down and make them suitable for the 'new' app and environment, with the Classic app no longer supported. Suitable custom capabilities and device presentations will be created where required, but the tools required only entered alpha test in mid-June 2020.
+The 'Anidea for ...' handlers strip things down and make them suitable for the 'new' app and environment, with the Classic app no longer supported. Suitable custom capabilities and device presentations will be created where required, but the tools required only entered alpha test in mid-June 2020 and the implementation still isn't quite up to scratch in October 2021.
 
 **Although a lot of edits have been made to the device handlers, they remain underpinned by the code from the 'bspranger' handlers when it comes to the Zigbee side of things, and also when it comes to the maths used in the Vibration Sensor.**
 
@@ -47,34 +47,20 @@ The common changes made to all the handlers include:
 ---
 ## Anidea for Virtual Devices
 
-**WITH THE INTRODUCTION OF 'SMARTTHINGS EDGE' 
-AS THE NEW SOLUTION FOR HUB CONNECTED DEVICES 
-TO REPLACE GROOVY DTHS, THE QUESTION IS LIKELY
-TO BE ASKED AS TO WHETHER IT IS INTENDED TO
-IMPLEMENT THESE DTHS IN AN EDGE DRIVER. 
-AT THE MOMENT THE ANSWER IS LOOKING LIKE A FIRM
-NO. THE AUTHOR HAS ALREADY SWITCHED TO COMMUNITY
-EDGE DRIVERS FOR HIS OWN USE, BUT THESE ARE PROBABLY
-A STOP GAP AS IT MAKES NO MORE SENSE TO HAVE LOCAL
-ONLY VIRTUAL DEVICES THAN CLOUD ONLY SO A BETTER
-SOLUTION IS REQUIRED. SMARTTHINGS
- HAVE ALSO NOTED THAT VIRTUAL DEVICES ARE
- BEING USED IN WAYS THAT DON'T REALLY 
-REQUIRE THE DEVICE PARADIGM AT ALL AND SEEM INTENT
-ON ADDRESSING THIS.**
+**I have no real intention of reimplementing these DTHs as Edge Drivers. I am already using community written Edge Drivers for most of my own requirements, and am also aware that Edge Drivers can never be the complete answer going forwards as they don't allow for cloud execution. SmartThings are very aware that much of the use of virtual devices doesn't really require the device paradigm at all and seem intent on providing more appropriate solutions, as well as their own virtual devices. So I am happy to bide my time.**
 
 - [Anidea for Virtual Binary](anidea-for-virtual-binary.src)
 - [Anidea for Virtual Button](anidea-for-virtual-button.src)
 - [Anidea for Virtual Humidity](anidea-for-virtual-humidity.src)
 - [Anidea for Virtual Momentary](anidea-for-virtual-momentary.src)
-- Anidea for Virtual Presence (Removed)
+- Anidea for Virtual Presence (REMOVED)
 - [Anidea for Virtual Temperature](anidea-for-virtual-temperature.src)
   
-At the time the [Anidea for Virtual Button](anidea-for-virtual-button.src) handler was created, there simply wasn't a stock handler that implemented a virtual button with the momentary capability and worked cleanly with the 'new' SmartThings mobile app. Once that was put together, consideration was given to adding support for the Switch capability, as used by the stock Momentary Button Tile handler, and also Contact Sensor and Motion Sensor capabilities as the author was vaguely aware that sort of thing was useful for working with Alexa. As adding those capabilities made the device details page look a bit of a mess, and more significantly made the `contact` attribute the default tile status instead of `button` (which could not be corrected at the time), it was decided to create a separate handler instead, hence [Anidea for Virtual Momentary](anidea-for-virtual-momentary.src). An optional delay has been added between the momentary active and inactive actions, which is perhaps a misnomer, but seems potentially useful. Having a Momentary action without a Button seems wrong so that has also been added, and the handler can now be considered as an extension of [Anidea for Virtual Button](anidea-for-virtual-button.src).
+At the time I built the [Anidea for Virtual Button](anidea-for-virtual-button.src) handler, there simply wasn't a stock handler that implemented a virtual button with the momentary capability and worked cleanly with the 'new' SmartThings mobile app. Once I put that together, I considered adding the Switch capability, as used by the stock Momentary Button Tile handler, and also Contact Sensor and Motion Sensor capabilities as I was aware that could be useful for triggering Alexa routines. As adding those capabilities made the device details page look a bit of a mess, and more significantly made the `contact` attribute the default tile status instead of `button` (which could not be corrected at the time), I decided to create a separate handler instead, hence [Anidea for Virtual Momentary](anidea-for-virtual-momentary.src). I also felt an optional delay between the momentary active and inactive actions would be useful. Having a Momentary action without a Button seemed wrong so I added that, so the handler really became an extension of [Anidea for Virtual Button](anidea-for-virtual-button.src).
 
-It also seems to be useful to be able to do things like map `switch` attributes to `contact` attributes, and vice versa. Hence the [Anidea for Virtual Binary](anidea-for-virtual-binary.src) handler. This can be useful for Alexa routines and it is particularly useful as an alternative to stock simulated sensors when the setter commands aren't available. The linking of the sensors has been made optional to allow the Anidea for Virtual Presence sensor to be withdrawn.
+It was obviously useful to be able to do things like map `switch` attributes to `contact` attributes, and vice versa. Hence the [Anidea for Virtual Binary](anidea-for-virtual-binary.src) handler. This can be useful for Alexa routines and it is particularly useful as an alternative to stock simulated sensors when the setter commands aren't available. 
 
-Mobile presence had been using both the Presence Sensor and Occupancy Sensor capabilities for some time. The Anidea for Virtual Presence did likewise. When mobile presence stopped using the Occupancy Sensor an option was added to link them both and eventually the functionality was transferred to the [Anidea for Virtual Binary](anidea-for-virtual-binary.src) handler.
+Mobile presence had been using both the Presence Sensor and Occupancy Sensor capabilities for some time. The Anidea for Virtual Presence handler did likewise. When mobile presence stopped using the Occupancy Sensor I added an option to link then both, and eventually made the linking optional in the [Anidea for Virtual Binary](anidea-for-virtual-binary.src) handler so I could remove Anidea for Virtual Presence completely.
 
 A post on Facebook mentioned that the Simulated Temperature Sensor didn't work with the new app. This led to [Anidea for Virtual Temperature](anidea-for-virtual-temperature.src) being created. A few months later a similar appeal was made for devices handlers for virtual humidity so that led to [Anidea for Virtual Humidity](anidea-for-virtual-humidity.src).
 
@@ -85,8 +71,8 @@ A post on Facebook mentioned that the Simulated Temperature Sensor didn't work w
 - [Anidea for HTTP Ping](anidea-for-http-ping.src)
 - Anidea for Scene Momentary (REMOVED)
  
-The last group of DTHs probably aren't of any practical use to other users though there might be something in the code that is of interest. [Anidea for HTTP Ping](anidea-for-http-ping.src) was written to detect a TV being switched on as active motion, back when Smart Lighting appeared to behave sensibly with multiple motion sensors but probably didn't and just wasn't being tested properly. Anidea for Scene Momentary was a momentary button that activated a scene, which could have been useful in ActionTiles pending the arrival of the official integration (which is now live), though it was also easy to use a bit of JavaScript in a URL Shortcut or a virtual switch with a trivial automation. It has been removed as it was a bit too pointless.
+The last group of DTHs probably aren't of any practical use to other users though there might be something in the code that is of interest. [Anidea for HTTP Ping](anidea-for-http-ping.src) was written to detect a TV being switched on as active motion, back when I thought Smart Lighting behaved sensibly with multiple motion sensors (it probably didn't, I probably didn't test it well enough). Anidea for Scene Momentary was a momentary button that activated a scene, which could have been useful in ActionTiles pending the arrival of the official integration (which is now live), though it was also easy to use a bit of JavaScript in a URL Shortcut or a virtual switch with a trivial automation. It has been removed as it was a bit too pointless.
 
 - [Anidea for Security System Helper](anidea-for-security-system-helper.src)
 
-The [Anidea for Security System Helper](anidea-for-security-system-helper.src) DTH is also unlikely to be particularly useful to other users. It was developed to assist with controlling STHM, if that is considered desirable. The standard trick of using three virtual switches and six Automations never worked for everyone for some reason which wasn't clear, and even before the switch to Rules based Automations meant the Virtual Switch DTH was no longer suitable it already seemed to be asking for trouble.
+The [Anidea for Security System Helper](anidea-for-security-system-helper.src) DTH is also unlikely to be particularly useful to other users. I developed it to assist with controlling STHM, not that I particularly wanted to do such a thing apart from perhaps in ActionTiles. The standard trick of using three virtual switches and six Automations apparently never worked for everyone for some reason which wasn't clear and certainly didn't work properly for me (though I was probably making things too complicated by using webCoRE and trying to retain the old alarm system access, which was still working even without SHM). Even before the switch to Rules based Automations meant the Virtual Switch DTH was no longer suitable, I thought the approach was just wrong.
