@@ -53,7 +53,7 @@ The common changes made to all the handlers include:
 - [Anidea for Virtual Button](anidea-for-virtual-button.src)
 - [Anidea for Virtual Humidity](anidea-for-virtual-humidity.src)
 - [Anidea for Virtual Momentary](anidea-for-virtual-momentary.src)
-- Anidea for Virtual Presence (Removed)
+- Anidea for Virtual Presence (REMOVED)
 - [Anidea for Virtual Temperature](anidea-for-virtual-temperature.src)
   
 At the time I built the [Anidea for Virtual Button](anidea-for-virtual-button.src) handler, there simply wasn't a stock handler that implemented a virtual button with the momentary capability and worked cleanly with the 'new' SmartThings mobile app. Once I put that together, I considered adding the Switch capability, as used by the stock Momentary Button Tile handler, and also Contact Sensor and Motion Sensor capabilities as I was aware that could be useful for triggering Alexa routines. As adding those capabilities made the device details page look a bit of a mess, and more significantly made the `contact` attribute the default tile status instead of `button` (which could not be corrected at the time), I decided to create a separate handler instead, hence [Anidea for Virtual Momentary](anidea-for-virtual-momentary.src). I also felt an optional delay between the momentary active and inactive actions would be useful. Having a Momentary action without a Button seemed wrong so I added that, so the handler really became an extension of [Anidea for Virtual Button](anidea-for-virtual-button.src).
