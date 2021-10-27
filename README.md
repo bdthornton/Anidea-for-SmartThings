@@ -3,7 +3,7 @@
 
 # Anidea for SmartThings (Anidea-ST)
 
-A repository of assorted SmartThings bits and bobs that were created for use within the owner's personal SmartThings environment, but hopefully to a standard that could potentially make them useful to others.
+This is a repository of assorted SmartThings bits and bobs that were created for use within my personal SmartThings environment. I tried to create it to a standard suitable for public access, but that has never been the main motivation. 
 
 **Please be aware that this is very much a personal repository, and so can be subject to the most trivial of changes. However, as a number of users have forked the repository and others may presumably be using it with their IDE, additional branches may now be in use so there is a bit of a buffer. Please stick to the default branch.**
 
