@@ -204,4 +204,4 @@ def close()
     state.manualcontact = true
         
     sendEvent( name: 'contact', value: 'closed', descriptionText: 'Contact status has been set manually.' )
-} 
+}
